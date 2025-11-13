@@ -10,13 +10,13 @@ public class PlayerManager : MonoBehaviour
     {
         if (SpawnPoints == null || SpawnPoints.Length == 0)
         {
-            Debug.LogError("❌ Geen spawn points ingesteld in PlayerManager!");
+            Debug.LogError(" Geen spawn points ingesteld in PlayerManager!");
             return;
         }
 
         if (player == null)
         {
-            Debug.LogError("❌ PlayerInput is null in SetSpawn!");
+            Debug.LogError(" PlayerInput is null in SetSpawn!");
             return;
         }
 
@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
         if (index >= SpawnPoints.Length)
         {
-            Debug.LogWarning($"⚠️ Spelerindex {index} groter dan aantal spawnpoints ({SpawnPoints.Length}), gebruik index 0.");
+            Debug.LogWarning($" Spelerindex {index} groter dan aantal spawnpoints ({SpawnPoints.Length}), gebruik index 0.");
             index = 0;
         }
 
