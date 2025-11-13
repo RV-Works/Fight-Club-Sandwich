@@ -10,6 +10,7 @@ public class Ingredient : MonoBehaviour, ICollectable
 
     public void Collect(GameObject player)
     {
-        player.GetComponent<PlayerIngredients>().AddIngredient(gameObject);
+        GetComponent<BoxCollider>().enabled = false;
+        player.GetComponentInParent<PlayerIngredients>().AddIngredient(gameObject);
     }
 }
