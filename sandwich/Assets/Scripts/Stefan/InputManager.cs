@@ -12,7 +12,6 @@ public class InputManager : MonoBehaviour
     private InputActionMap player;
 
     private Controls m_playerInput;
-    private float m_lookInput = 0f;
     private Vector2 m_moveInput = new Vector2();
 
     public buttonDelegate dashEvent;
