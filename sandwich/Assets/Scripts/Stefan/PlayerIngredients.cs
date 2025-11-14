@@ -32,6 +32,17 @@ public class PlayerIngredients : MonoBehaviour
         UpdatePosition();
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        Debug.Log(rigidbody.linearVelocity);
+
+        if (collision.rigidbody.linearVelocity.x > 10f || collision.rigidbody.linearVelocity.x < -10f)
+        {
+            Debug.Log(name + " loses ingredients");
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         other.GetComponent<ICollectable>().Collect(gameObject);

@@ -40,7 +40,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (m_inputManager == null)
             return;
 
-        // without move event
+        // set input without event
         //moveInput = new Vector3(m_inputManager.MoveInput.x,0,m_inputManager.MoveInput.y).normalized;
 
         // moving
