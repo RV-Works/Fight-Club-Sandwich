@@ -40,12 +40,15 @@ public class ThirdPersonMovement : MonoBehaviour
         if (m_inputManager == null)
             return;
 
+        // without move event
+        //moveInput = new Vector3(m_inputManager.MoveInput.x,0,m_inputManager.MoveInput.y).normalized;
+
         // moving
         if (moveInput.x != 0f || moveInput.z != 0f)
         {
             // move character
             float speed = m_sprinting ? m_speed * 2.5f : m_speed;
-             m_rigidBody.AddForce(moveInput * speed);
+            m_rigidBody.AddForce(moveInput * speed);
 
             // rotate towards movement
             Quaternion targetRotation = Quaternion.LookRotation(moveInput);

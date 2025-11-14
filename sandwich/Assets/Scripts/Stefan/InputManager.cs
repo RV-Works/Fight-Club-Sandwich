@@ -13,6 +13,10 @@ public class InputManager : MonoBehaviour
 
     private Controls m_playerInput;
     private Vector2 m_moveInput = new Vector2();
+    public Vector2 MoveInput
+    {
+        get { return m_moveInput; }
+    }
 
     public buttonDelegate dashEvent;
     public vector2Delegate moveEvent;
