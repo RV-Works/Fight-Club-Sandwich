@@ -5,7 +5,7 @@ using UnityEngine;
 public class WavesSystem : MonoBehaviour
 {
     [SerializeField] private List<Ingredient> ingredients;
-    //[SerializeField] private List<SabotageItem> sabotageItems;
+    [SerializeField] private List<SabotageItem> sabotageItems;
     [SerializeField] private int WavesCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
