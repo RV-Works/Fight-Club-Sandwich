@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1975420262728636845}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ Rigidbody:
   m_GameObject: {fileID: 936150307329352992}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 3
+  m_LinearDamping: 7
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d049059aa9da4548b4e5a1ebd377dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonMovement
-  m_speed: 100
+  m_speed: 155
   m_turnSpeed: 15
   m_dashForce: 4000
   m_dashCooldown: 2
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2335562309467737681}
   m_Layer: 0
   m_Name: PlayerInput
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandwich bottom bitch
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc391f0ed5738284895b27e89c83c273, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -313,6 +317,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fb0aec0be97a47c458837fbdc5dbf604, type: 3}
       propertyPath: m_Name
       value: Sandwich top bitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb0aec0be97a47c458837fbdc5dbf604, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

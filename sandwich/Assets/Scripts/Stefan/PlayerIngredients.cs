@@ -34,11 +34,20 @@ public class PlayerIngredients : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.collider.tag);
+        if (!collision.collider.CompareTag("Player"))
+            return;
+
         Rigidbody rigidbody = GetComponent<Rigidbody>();
-        Debug.Log(rigidbody.linearVelocity);
+        Debug.Log(collision.rigidbody.linearVelocity.magnitude);
 
         if (collision.rigidbody.linearVelocity.x > 10f || collision.rigidbody.linearVelocity.x < -10f)
         {
+            Vector3 direction = transform.position - collision.transform.position;
+
+            float angle = Vector3.Angle(collision.transform.forward, direction);
+
+            Debug.Log(angle);
             Debug.Log(name + " loses ingredients");
         }
     }
