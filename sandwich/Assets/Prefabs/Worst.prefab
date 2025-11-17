@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b486c99521900c2488e147d6151fb4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
+  isGrounded: 0
 --- !u!65 &7924655045151054115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!1001 &1146917492272855706
 PrefabInstance:
