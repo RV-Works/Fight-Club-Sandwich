@@ -10,6 +10,7 @@ public class WavesSystem : MonoBehaviour
     [SerializeField] private float Timer = 30f;           // duration of each wave in seconds
     [SerializeField] private float SpawnInterval = 5f;    // how often to spawn during an active wave
     [SerializeField] private TMP_Text timerText;          // assign your TextMeshPro - Text component here
+    [SerializeField] private float SpawnHeight = 10f;     // vertical offset above the prefab's y to spawn from
 
     private float _waveTimer;
     private float _spawnTimer;
@@ -92,7 +93,7 @@ public class WavesSystem : MonoBehaviour
             if (ingredient == null) continue;
             Vector3 pos = new Vector3(
                 Random.Range(-10f, 10f),
-                ingredient.transform.position.y,
+                ingredient.transform.position.y + SpawnHeight,
                 Random.Range(-10f, 10f)
             );
             Instantiate(ingredient, pos, Quaternion.identity);
@@ -104,7 +105,7 @@ public class WavesSystem : MonoBehaviour
             if (sabotage == null) continue;
             Vector3 pos = new Vector3(
                 Random.Range(-10f, 10f),
-                sabotage.transform.position.y,
+                sabotage.transform.position.y + SpawnHeight,
                 Random.Range(-10f, 10f)
             );
             Instantiate(sabotage, pos, Quaternion.identity);
