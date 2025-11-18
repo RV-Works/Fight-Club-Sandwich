@@ -4,11 +4,13 @@ public class Ingredient : MonoBehaviour, ICollectable
 {
     [SerializeField] private bool isGrounded = false;
     private Rigidbody rb;
+    private BoxCollider boxCollider;
     private const float GroundY = 0.02f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     void Update()
@@ -27,6 +29,9 @@ public class Ingredient : MonoBehaviour, ICollectable
             rb.useGravity = false;
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+
+            boxCollider.isTrigger = true;
+            transform.position = new Vector3(transform.position.x,GroundY,transform.position.z);
         }
     }
 

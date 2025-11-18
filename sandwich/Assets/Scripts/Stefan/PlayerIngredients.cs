@@ -8,7 +8,7 @@ public class PlayerIngredients : MonoBehaviour
 
     private void UpdatePosition()
     {
-        float toAdd = 1.6f;
+        float toAdd = 0.235f;
         float lastPosition = 0f;
         
         // position ingredients
