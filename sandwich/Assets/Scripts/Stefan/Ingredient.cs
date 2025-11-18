@@ -3,6 +3,11 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour, ICollectable
 {
     [SerializeField] private bool isGrounded = false;
+    public bool SetGrounded
+    {
+        get { return isGrounded; }
+        set { isGrounded = value; }
+    }
     private Rigidbody rb;
     private BoxCollider boxCollider;
     private const float GroundY = 0.02f;

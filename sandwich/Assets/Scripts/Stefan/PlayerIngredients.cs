@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerIngredients : MonoBehaviour
 {
     [SerializeField] private GameObject m_top;
     [SerializeField] private List<GameObject> m_ingredients = new List<GameObject>();
+    [SerializeField] private float m_velocity = 10f;
 
     private void UpdatePosition()
     {
@@ -29,6 +31,29 @@ public class PlayerIngredients : MonoBehaviour
         ingredient.transform.rotation.Equals(m_top.transform.rotation);
         ingredient.transform.SetParent(gameObject.transform, false);
         m_ingredients.Add(ingredient);
+        UpdatePosition();
+    }
+
+    public void LoseIngredient(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            if (m_ingredients.Count > 0)
+            {
+                GameObject ingredient = m_ingredients.Last();
+                m_ingredients.Remove(ingredient);
+                ingredient.transform.parent = null;
+                
+                Rigidbody rb = ingredient.GetComponent<Rigidbody>();
+                rb.useGravity = true;
+
+                rb.AddForce(Random.Range(-1f,1f) * m_velocity,0,Random.Range(-1f, 1f) * m_velocity);
+
+                ingredient.GetComponent<Ingredient>().SetGrounded = false;
+                
+                ingredient.GetComponent<BoxCollider>().enabled = true;
+            }
+        }
         UpdatePosition();
     }
 
