@@ -18,8 +18,8 @@ public class InputManager : MonoBehaviour
         get { return m_moveInput; }
     }
 
-    public buttonDelegate dashEvent;
-    public vector2Delegate moveEvent;
+    public event buttonDelegate dashEvent;
+    public event vector2Delegate moveEvent;
 
     private void Awake()
     {

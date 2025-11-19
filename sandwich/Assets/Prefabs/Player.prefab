@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerIngredients
   m_top: {fileID: 7924093064755982351}
   m_ingredients: []
+  m_velocity: 10
 --- !u!1 &4135378920947090754
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sandwich bitch bottom 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -313,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
       propertyPath: m_Name
       value: sandwich bitch top
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
