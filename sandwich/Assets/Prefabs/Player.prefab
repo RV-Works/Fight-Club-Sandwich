@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 698120938335919932}
   - component: {fileID: 8822600663031087882}
   - component: {fileID: 1975420262728636845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d049059aa9da4548b4e5a1ebd377dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonMovement
-  m_speed: 70
+  m_speed: 100
   m_turnSpeed: 15
   m_dashForce: 2000
   m_dashCooldown: 2
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerIngredients
   m_top: {fileID: 7924093064755982351}
   m_ingredients: []
-  m_velocity: 10
+  m_inputManager: {fileID: 8822600663031087882}
 --- !u!1 &4135378920947090754
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2396797177434474017}
   - component: {fileID: 2335562309467737681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerInput
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -225,6 +225,10 @@ PrefabInstance:
       value: sandwich bitch bottom 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -234,14 +238,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2459923147946554451}
+      addedObject: {fileID: 2234721755988908247}
   m_SourcePrefab: {fileID: 100100000, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
 --- !u!1 &5870906263665961735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
   m_PrefabInstance: {fileID: 6753376296029509206}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &2459923147946554451
+--- !u!65 &2234721755988908247
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,8 +264,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.35266122, y: 0.25183892, z: 0.3915826}
-  m_Center: {x: 0.006761908, y: 0.12419695, z: 0.0000000745276}
+  m_Size: {x: 0.86391705, y: 0.62959725, z: 0.97895646}
+  m_Center: {x: 0.004452407, y: 0.31049237, z: -0.000000059625584}
 --- !u!4 &6499387541586489789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
@@ -281,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.225
+      value: 0.635
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -318,6 +322,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
       propertyPath: m_Name
       value: sandwich bitch top
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be34d0ce7d68fe0408f04584c8b5cae3, type: 3}
       propertyPath: m_TagString

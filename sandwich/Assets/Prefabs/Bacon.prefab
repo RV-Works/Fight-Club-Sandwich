@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b486c99521900c2488e147d6151fb4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
+  m_throwVelocity: 5
   isGrounded: 0
 --- !u!65 &7924655045151054115
 BoxCollider:
@@ -67,8 +68,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.32956934, y: 0.093210526, z: 0.34759676}
-  m_Center: {x: 0.0011820123, y: 0.029771332, z: 0.015310489}
+  m_Size: {x: 0.82392335, y: 0.23302631, z: 0.868992}
+  m_Center: {x: 0.0029550344, y: 0.07442833, z: 0.03827621}
 --- !u!54 &2353741559079572375
 Rigidbody:
   m_ObjectHideFlags: 0
