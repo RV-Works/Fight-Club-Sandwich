@@ -354,7 +354,7 @@ MonoBehaviour:
   Fork: 0
   Spoon: 1
   ButterBottle: 0
-  weapons: {fileID: 0}
+  weapons: {fileID: 83533083494797384}
 --- !u!1 &8585894323509862971
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   Fork: 1
   Spoon: 0
   ButterBottle: 0
-  weapons: {fileID: 0}
+  weapons: {fileID: 83533083494797384}
 --- !u!1001 &6753376296029509206
 PrefabInstance:
   m_ObjectHideFlags: 0
