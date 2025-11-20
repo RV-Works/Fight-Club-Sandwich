@@ -74,7 +74,7 @@ public class Ingredient : MonoBehaviour, ICollectable
     public void Collect(GameObject player)
     {
         boxCollider.enabled = false;
-        player.GetComponentInParent<PlayerIngredients>().AddIngredient(gameObject);
+        player.GetComponent<PlayerIngredients>().AddIngredient(gameObject);
     }
 
     public void OnCollisionEnter(Collision collision)
