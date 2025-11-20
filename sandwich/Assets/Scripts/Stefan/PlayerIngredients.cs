@@ -6,7 +6,13 @@ public class PlayerIngredients : MonoBehaviour
 {
     [SerializeField] private GameObject m_top;
     [SerializeField] private List<GameObject> m_ingredients = new List<GameObject>();
-    [SerializeField] private float m_velocity = 10f;
+    private Rigidbody m_rb;
+
+    private void Start()
+    {
+        // m_inputManager.dashEvent += LoseIngredient;
+        m_rb = GetComponent<Rigidbody>();
+    }
 
     private void UpdatePosition()
     {
@@ -28,7 +34,10 @@ public class PlayerIngredients : MonoBehaviour
 
     public void AddIngredient(GameObject ingredient)
     {
+        // rotate same as player
         ingredient.transform.rotation.Equals(m_top.transform.rotation);
+        
+        // add to stack
         ingredient.transform.SetParent(gameObject.transform, false);
         m_ingredients.Add(ingredient);
         UpdatePosition();
@@ -40,45 +49,52 @@ public class PlayerIngredients : MonoBehaviour
         {
             if (m_ingredients.Count > 0)
             {
+                // take newest ingredient and throw it out
                 GameObject ingredient = m_ingredients.Last();
                 m_ingredients.Remove(ingredient);
-                ingredient.transform.parent = null;
-                
-                Rigidbody rb = ingredient.GetComponent<Rigidbody>();
-                rb.useGravity = true;
-
-                rb.AddForce(Random.Range(-1f,1f) * m_velocity,0,Random.Range(-1f, 1f) * m_velocity);
-
-                ingredient.GetComponent<Ingredient>().SetGrounded = false;
-                
-                ingredient.GetComponent<BoxCollider>().enabled = true;
+                ingredient.transform.SetParent(null);
+                ingredient.GetComponent<Ingredient>().Throw();
+            }
+            else 
+            { 
+                return; 
             }
         }
+
+        // update the top again
         UpdatePosition();
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.tag);
-        if (!collision.collider.CompareTag("Player"))
-            return;
-
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        Debug.Log(collision.rigidbody.linearVelocity.magnitude);
-
-        if (collision.rigidbody.linearVelocity.x > 10f || collision.rigidbody.linearVelocity.x < -10f)
+        // collision with player
+        if (collision.collider.CompareTag("Player"))
         {
-            Vector3 direction = transform.position - collision.transform.position;
+            Debug.Log("magnitude: " + collision.rigidbody.linearVelocity.magnitude);
 
-            float angle = Vector3.Angle(collision.transform.forward, direction);
 
-            Debug.Log(angle);
-            Debug.Log(name + " loses ingredients");
-        }
+            if (collision.rigidbody.linearVelocity.magnitude > 10f)
+            {
+                Vector3 direction = transform.position - collision.transform.position;
+
+                float angle = Vector3.Angle(collision.transform.forward, direction);
+
+                // lose ingredients
+                LoseIngredient(2);
+
+                Debug.Log(angle);
+                Debug.Log(name + " loses ingredients");
+            }
+
+            return;
+        }        
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<ICollectable>().Collect(gameObject);
+        if (other.TryGetComponent<ICollectable>(out ICollectable collectable))
+        {
+            collectable.Collect(gameObject);
+        }
     }
 }
