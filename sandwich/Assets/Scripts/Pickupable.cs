@@ -6,6 +6,10 @@ public class Pickupable : MonoBehaviour
     [SerializeField] private bool Fork = false;
     [SerializeField] private bool Spoon = false;
     [SerializeField] private bool ButterBottle = false;
+    [SerializeField] private bool Vacuum = false;
+ 
+    [SerializeField] private bool Sauce = false;
+    [SerializeField] private bool water = false;
     public Weapons weapons;
 
     private void OnTriggerEnter(Collider other)
@@ -38,10 +42,9 @@ public class Pickupable : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        if (ButterBottle)
+        if (Vacuum)
         {
-            targetWeapons.ActivateButterBottle();
+            targetWeapons.ActivateVacuum();
             Destroy(gameObject);
             return;
         }
