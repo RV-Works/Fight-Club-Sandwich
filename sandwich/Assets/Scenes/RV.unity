@@ -601,7 +601,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8706431729105220028, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
   m_PrefabInstance: {fileID: 8581699496046092685}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8581699496046092686}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f987edb712b994e92a98d9f3044fa4, type: 3}
@@ -1083,6 +1083,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3954444807296805859, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 209479062}
     - target: {fileID: 4437630026474179386, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1146,41 +1150,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4437630026474179386, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8581699496046092687}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
---- !u!1 &8581699496046092686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4437630026474179386, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
+--- !u!114 &8581699496046092687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3954444807296805859, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
   m_PrefabInstance: {fileID: 8581699496046092685}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8581699496046092687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8581699496046092686}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0ae49032a838f4285eb596a539bb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WavesSystem
-  ingredients:
-  - {fileID: 5248109561517567111, guid: 119ba4b55ed9a68438fc71dd5154baf1, type: 3}
-  - {fileID: 5248109561517567111, guid: 119ba4b55ed9a68438fc71dd5154baf1, type: 3}
-  - {fileID: 3220059473017655978, guid: 2b2c990383dc88d438f2baf8e2048705, type: 3}
-  - {fileID: 3220059473017655978, guid: 2b2c990383dc88d438f2baf8e2048705, type: 3}
-  sabotageItems: []
-  puddles:
-  - {fileID: 3100403114938094736, guid: a63dcf2a852c0c346a635262ee3928cc, type: 3}
-  WavesCount: 1
-  Timer: 30
-  SpawnInterval: 5
-  timerText: {fileID: 209479062}
-  SpawnHeight: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
