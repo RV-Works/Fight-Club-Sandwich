@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,12 +7,13 @@ public class PlayerIngredients : MonoBehaviour
 {
     [SerializeField] private GameObject top;
     [SerializeField] private List<GameObject> ingredients = new List<GameObject>();
-    private Rigidbody rb;
+    [SerializeField] private List<Rigidbody> _immunityRigidbodies = new List<Rigidbody>();
+    private Rigidbody _rb;
 
     private void Start()
     {
         // m_inputManager.dashEvent += LoseIngredient;
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void UpdatePosition()
@@ -65,24 +67,39 @@ public class PlayerIngredients : MonoBehaviour
         UpdatePosition();
     }
 
+    private IEnumerator GiveImmune(Rigidbody rigidbodyToAdd)
+    {
+        _immunityRigidbodies.Add(rigidbodyToAdd);
+        yield return new WaitForSeconds(0.5f);
+        _immunityRigidbodies.Remove(rigidbodyToAdd);
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         // collision with player
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("magnitude: " + collision.rigidbody.linearVelocity.magnitude);
+            Debug.Log("my magnitude: " + _rb.linearVelocity + " | " + _rb.linearVelocity.magnitude);
+            Debug.Log("enemy magnitude: " + collision.rigidbody.linearVelocity + " | " + collision.rigidbody.linearVelocity.magnitude);
 
+            if (_immunityRigidbodies.Contains(collision.rigidbody))
+                return;
+
+            if (_rb.linearVelocity.magnitude > 10f && collision.rigidbody.linearVelocity.magnitude < 10f)
+            {
+                Debug.Log("yes");
+                StartCoroutine(GiveImmune(collision.rigidbody));
+            }
 
             if (collision.rigidbody.linearVelocity.magnitude > 10f)
             {
                 Vector3 direction = transform.position - collision.transform.position;
 
-                float angle = Vector3.Angle(collision.transform.forward, direction);
+                //float angle = Vector3.Angle(collision.transform.forward, direction);
 
                 // lose ingredients
                 LoseIngredient(2);
 
-                Debug.Log(angle);
                 Debug.Log(name + " loses ingredients");
             }
 
