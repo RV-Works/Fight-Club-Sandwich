@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class Weapons : MonoBehaviour
 {
     [SerializeField] private bool HoldingKnife = false;
@@ -8,10 +7,8 @@ public class Weapons : MonoBehaviour
     [SerializeField] private bool HoldingSpoon = false;
     [SerializeField] private bool HoldingButterBottle = false;
     [SerializeField] private bool HoldingVacuum = false;
-
     [SerializeField] private bool HoldingSauce = false;
     [SerializeField] private bool HoldingWater = false;
-    // Made public for test/assignment in Inspector
     public GameObject KnifeObject;
     public GameObject ForkObject;
     public GameObject SpoonObject;
@@ -20,10 +17,9 @@ public class Weapons : MonoBehaviour
     public GameObject Butter;
     public GameObject Sauce;
     public GameObject Water;
+    [SerializeField] private GameObject Projectile;
+    public ThirdPersonMovement Player;
 
-    public void Throw()
-    {
-    }
 
     public void ActivateKnife()
     {
@@ -63,4 +59,45 @@ public class Weapons : MonoBehaviour
         HoldingSauce = true;
         if (Sauce != null) Sauce.SetActive(true);
     }
+    // the throwy thingy
+    public void ThrowFork()
+    {
+        HoldingFork = false;
+        if (ForkObject != null) ForkObject.SetActive(false);
+        Instantiate(Projectile, transform.position + transform.forward * 2, transform.rotation);
+    }
+    public void ThrowSpoon()
+    {
+        HoldingSpoon = false;
+        if (SpoonObject != null) SpoonObject.SetActive(false);
+        Instantiate(Projectile, transform.position + transform.forward * 2, transform.rotation);
+    }
+    public void ThrowWater()
+    {
+        HoldingWater = false;
+        if (Water != null) Water.SetActive(false);
+        Instantiate(Projectile, transform.position + transform.forward * 2, transform.rotation);
+    }
+    public void ThrowSauce()
+    {
+        HoldingSauce = false;
+        if (Sauce != null) Sauce.SetActive(false);
+        Instantiate(Projectile, transform.position + transform.forward * 2, transform.rotation);
+    }
+    public void UseButter()
+    {
+        HoldingButterBottle = false;
+        if (ButterBottleObject != null) ButterBottleObject.SetActive(false);
+        if (Butter != null) Butter.SetActive(true);
+
+        // Double the player's speed for 1 second
+        if (Player != null)
+            Player.ApplySpeedMultiplier(2f, 1f);
+    }
+    public void UseVacuum()
+    {
+        HoldingVacuum = false;
+        if (VacuumObject != null) VacuumObject.SetActive(false);
+    }
+
 }

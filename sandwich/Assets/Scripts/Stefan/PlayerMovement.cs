@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -16,9 +17,12 @@ public class ThirdPersonMovement : MonoBehaviour
     private Vector3 m_velocity;
     private float m_currentDashCooldown = 0f;
 
+    private float baseSpeed;
+    private Coroutine speedCoroutine;
     private void Start()
     {
         m_rigidBody = GetComponent<Rigidbody>();
+        baseSpeed = m_speed;
     }
 
     private void OnEnable()
@@ -80,4 +84,20 @@ public class ThirdPersonMovement : MonoBehaviour
             m_currentDashCooldown = m_dashCooldown;
         }
     }
+    public void ApplySpeedMultiplier(float multiplier, float duration)
+    {
+        if (speedCoroutine != null)
+            StopCoroutine(speedCoroutine);
+
+        speedCoroutine = StartCoroutine(ApplySpeedMultiplierCoroutine(multiplier, duration));
+    }
+
+    private IEnumerator ApplySpeedMultiplierCoroutine(float multiplier, float duration)
+    {
+        m_speed = baseSpeed * multiplier;
+        yield return new WaitForSeconds(duration);
+        m_speed = baseSpeed;
+        speedCoroutine = null;
+    }
 }
+
