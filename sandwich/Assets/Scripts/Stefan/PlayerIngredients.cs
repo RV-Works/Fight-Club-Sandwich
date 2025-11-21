@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerIngredients : MonoBehaviour
 {
-    [SerializeField] private GameObject m_top;
-    [SerializeField] private List<GameObject> m_ingredients = new List<GameObject>();
-    private Rigidbody m_rb;
+    [SerializeField] private GameObject top;
+    [SerializeField] private List<GameObject> ingredients = new List<GameObject>();
+    private Rigidbody rb;
 
     private void Start()
     {
         // m_inputManager.dashEvent += LoseIngredient;
-        m_rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void UpdatePosition()
@@ -20,26 +20,26 @@ public class PlayerIngredients : MonoBehaviour
         float lastPosition = 0f;
         
         // position ingredients
-        for (int i = 0; i < m_ingredients.Count; i++)
+        for (int i = 0; i < ingredients.Count; i++)
         {
             lastPosition += toAdd;
-            m_ingredients[i].transform.localPosition = new Vector3(0,lastPosition,0);
-            toAdd = m_ingredients[i].GetComponentInChildren<MeshRenderer>().bounds.size.y;
+            ingredients[i].transform.localPosition = new Vector3(0,lastPosition,0);
+            toAdd = ingredients[i].GetComponentInChildren<MeshRenderer>().bounds.size.y;
         }
 
         // position the top head
         lastPosition += toAdd;
-        m_top.transform.localPosition = new Vector3(0, lastPosition, 0);
+        top.transform.localPosition = new Vector3(0, lastPosition, 0);
     }
 
     public void AddIngredient(GameObject ingredient)
     {
         // rotate same as player
-        ingredient.transform.rotation.Equals(m_top.transform.rotation);
+        ingredient.transform.rotation.Equals(top.transform.rotation);
         
         // add to stack
         ingredient.transform.SetParent(gameObject.transform, false);
-        m_ingredients.Add(ingredient);
+        ingredients.Add(ingredient);
         UpdatePosition();
     }
 
@@ -47,11 +47,11 @@ public class PlayerIngredients : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            if (m_ingredients.Count > 0)
+            if (ingredients.Count > 0)
             {
                 // take newest ingredient and throw it out
-                GameObject ingredient = m_ingredients.Last();
-                m_ingredients.Remove(ingredient);
+                GameObject ingredient = ingredients.Last();
+                ingredients.Remove(ingredient);
                 ingredient.transform.SetParent(null);
                 ingredient.GetComponent<Ingredient>().Throw();
             }
