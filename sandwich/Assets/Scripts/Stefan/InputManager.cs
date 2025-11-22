@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
     private InputActionAsset inputAsset;
     private InputActionMap player;
 
-    private Controls m_playerInput;
     private Vector2 m_moveInput = new Vector2();
     public Vector2 MoveInput
     {

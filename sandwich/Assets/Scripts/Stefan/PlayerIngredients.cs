@@ -12,7 +12,6 @@ public class PlayerIngredients : MonoBehaviour
 
     private void Start()
     {
-        // m_inputManager.dashEvent += LoseIngredient;
         _rb = GetComponent<Rigidbody>();
     }
 
