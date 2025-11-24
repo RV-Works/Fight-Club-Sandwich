@@ -38,7 +38,11 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            Debug.Log(Players);
+
+            foreach (var player in Players)
+            {
+                Debug.Log(player);
+            }
         }
     }
 

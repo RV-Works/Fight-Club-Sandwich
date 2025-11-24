@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     [Header("Spawn Points")]
     public Transform[] SpawnPoints;
+    public CameraController cameraController;
 
     public void SetSpawn(PlayerInput player)
     {
@@ -21,7 +22,9 @@ public class PlayerManager : MonoBehaviour
         }
 
         int index = player.playerIndex;
-        player.GetComponent<PlayerIngredients>().SetId(index);
+
+        // add target in camera
+        cameraController.AddTarget(player.transform);
 
         if (index >= SpawnPoints.Length)
         {

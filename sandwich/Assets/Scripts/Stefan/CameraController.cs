@@ -79,4 +79,9 @@ public class CameraController : MonoBehaviour
 
         return Mathf.Clamp(size + edgeBuffer, minSize, maxSize);
     }
+
+    public void AddTarget(Transform player)
+    {
+        targets.Add(player);
+    }
 }
