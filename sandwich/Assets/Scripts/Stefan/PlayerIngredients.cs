@@ -14,6 +14,7 @@ public class PlayerIngredients : MonoBehaviour
     [SerializeField] private List<Rigidbody> _immunityRigidbodies = new List<Rigidbody>();
     private const float _teunScale = 7.815301f; // the model has a scale for some fking reason
     private Rigidbody _rb;
+    [SerializeField] private int _id;
 
     private void Start()
     {
@@ -124,5 +125,10 @@ public class PlayerIngredients : MonoBehaviour
         {
             collectable.Collect(gameObject);
         }
+    }
+
+    public void SetId(int id)
+    {
+        _id = id;
     }
 }

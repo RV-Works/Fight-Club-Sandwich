@@ -107,6 +107,7 @@ public class PlayerJoined : MonoBehaviour
 
         Players[JoinedPlayers] = playerInput.gameObject;
         JoinedPlayers++;
+        
         Debug.Log($"Player added: {playerInput.gameObject.name} (Total: {JoinedPlayers}/{MaxPlayers})");
 
         if (playerManager != null)

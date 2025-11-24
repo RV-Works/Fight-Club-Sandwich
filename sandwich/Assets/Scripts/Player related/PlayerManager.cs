@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         int index = player.playerIndex;
+        player.GetComponent<PlayerIngredients>().SetId(index);
 
         if (index >= SpawnPoints.Length)
         {
@@ -30,6 +31,7 @@ public class PlayerManager : MonoBehaviour
 
         player.transform.position = SpawnPoints[index].position;
         player.transform.rotation = SpawnPoints[index].rotation;
+
 
         Debug.Log($" Speler {player.playerIndex} gespawned op spawnpoint {index}");
     }
