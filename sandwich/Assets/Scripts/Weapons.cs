@@ -5,20 +5,20 @@ public class Weapons : MonoBehaviour
     [SerializeField] private bool HoldingKnife = false;
     [SerializeField] private bool HoldingFork = false;
     [SerializeField] private bool HoldingSpoon = false;
-    [SerializeField] private bool HoldingButterBottle = false;
+    //[SerializeField] private bool HoldingButterBottle = false;
     [SerializeField] private bool HoldingVacuum = false;
     [SerializeField] private bool HoldingSauce = false;
     [SerializeField] private bool HoldingWater = false;
     public GameObject KnifeObject;
     public GameObject ForkObject;
     public GameObject SpoonObject;
-    public GameObject ButterBottleObject;
+    //public GameObject ButterBottleObject;
     public GameObject VacuumObject;
-    public GameObject Butter;
     public GameObject Sauce;
     public GameObject Water;
     [SerializeField] private GameObject Projectile;
     public ThirdPersonMovement Player;
+    public Pickupable Pickupable;
 
 
     public void ActivateKnife()
@@ -39,11 +39,11 @@ public class Weapons : MonoBehaviour
         if (SpoonObject != null) SpoonObject.SetActive(true);
     }
 
-    public void ActivateButterBottle()
-    {
-        HoldingButterBottle = true;
-        if (ButterBottleObject != null) ButterBottleObject.SetActive(true);
-    }
+    //public void ActivateButterBottle()
+    //{
+    //    HoldingButterBottle = true;
+    //    if (ButterBottleObject != null) ButterBottleObject.SetActive(true);
+    //}
     public void ActivateVacuum()
     {
         HoldingVacuum = true;
@@ -84,16 +84,16 @@ public class Weapons : MonoBehaviour
         if (Sauce != null) Sauce.SetActive(false);
         Instantiate(Projectile, transform.position + transform.forward * 2, transform.rotation);
     }
-    public void UseButter()
-    {
-        HoldingButterBottle = false;
-        if (ButterBottleObject != null) ButterBottleObject.SetActive(false);
-        if (Butter != null) Butter.SetActive(true);
+    //public void UseButter()
+    //{
+    //    HoldingButterBottle = false;
+    //    if (ButterBottleObject != null) ButterBottleObject.SetActive(false);
+    //    if (Butter != null) Butter.SetActive(true);
 
-        // Double the player's speed for 1 second
-        if (Player != null)
-            Player.ApplySpeedMultiplier(2f, 1f);
-    }
+    //    // Double the player's speed for 1 second
+    //    if (Player != null)
+    //        Player.ApplySpeedMultiplier(2f, 1f);
+    //}
     public void UseVacuum()
     {
         HoldingVacuum = false;

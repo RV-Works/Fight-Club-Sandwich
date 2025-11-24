@@ -48,5 +48,22 @@ public class Pickupable : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        if (Sauce)
+        {
+            targetWeapons.ActivateSauce();
+            Destroy(gameObject);
+            return;
+        }
+        if (water)
+        {
+            targetWeapons.ActivateWater();
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    void UsingItems() 
+    {
+
     }
 }
