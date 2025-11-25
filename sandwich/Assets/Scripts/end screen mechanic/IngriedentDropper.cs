@@ -10,14 +10,16 @@ public class IngriedentDropper : MonoBehaviour
     [SerializeField] List<Ingredients> ingriedents = new List<Ingredients>();
     [SerializeField] List<GameObject> ingriedentObjects = new List<GameObject>();
     [SerializeField] int SandwichID;
+    [SerializeField] TMPro.TMP_Text ScorePP;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {     
-        StartCoroutine(Dropper());
+     
         if (GameManager.instance.Players.ContainsKey(SandwichID))
         {
             ingriedents = GameManager.instance.Players[SandwichID];
+            StartCoroutine(Dropper());
         }
     }
     IEnumerator Dropper() 
