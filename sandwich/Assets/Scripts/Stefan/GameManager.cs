@@ -28,20 +28,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            StartCoroutine(LogEverySecond());
-        }
-    }
-
-    private IEnumerator LogEverySecond()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-
-            foreach (var player in Players)
-            {
-                Debug.Log(player.Value);
-            }
         }
     }
 
