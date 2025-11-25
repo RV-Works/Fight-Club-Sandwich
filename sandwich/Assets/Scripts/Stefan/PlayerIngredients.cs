@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class PlayerIngredients : MonoBehaviour
 {
-    [SerializeField] private GameObject top;
+    [SerializeField] private GameObject _topBack;
+    [SerializeField] private GameObject _topFront;
+    [SerializeField] private GameObject _eyeLeft;
+    [SerializeField] private GameObject _eyeRight;
+    [SerializeField] private GameObject _ingredientParent;
     [SerializeField] private List<GameObject> ingredients = new List<GameObject>();
     [SerializeField] private List<Rigidbody> _immunityRigidbodies = new List<Rigidbody>();
+    private const float _teunScale = 7.815301f; // the model has a scale for some fking reason
     private Rigidbody _rb;
+    [SerializeField] private int _id;
 
     private void Start()
     {
@@ -17,29 +23,36 @@ public class PlayerIngredients : MonoBehaviour
 
     private void UpdatePosition()
     {
-        float toAdd = 0.6f;
+        float toAdd = 0f;
         float lastPosition = 0f;
         
         // position ingredients
         for (int i = 0; i < ingredients.Count; i++)
         {
             lastPosition += toAdd;
-            ingredients[i].transform.localPosition = new Vector3(0,lastPosition,0);
-            toAdd = ingredients[i].GetComponentInChildren<MeshRenderer>().bounds.size.y;
+            ingredients[i].transform.localPosition = new Vector3(0,0,lastPosition);
+            toAdd = ingredients[i].GetComponentInChildren<MeshRenderer>().bounds.size.y * ingredients[i].transform.localScale.y;
         }
 
         // position the top head
         lastPosition += toAdd;
-        top.transform.localPosition = new Vector3(0, lastPosition, 0);
+        _topBack.transform.localPosition = new Vector3(0, 0, lastPosition);
+        _topFront.transform.localPosition = new Vector3(0, 0, lastPosition);
+
+        // position the eyes
+        lastPosition += 0.03173957f;
+        _eyeLeft.transform.localPosition = new Vector3(_eyeLeft.transform.localPosition.x, _eyeLeft.transform.localPosition.y, lastPosition);
+        _eyeRight.transform.localPosition = new Vector3(_eyeRight.transform.localPosition.x, _eyeRight.transform.localPosition.y, lastPosition);
     }
 
     public void AddIngredient(GameObject ingredient)
     {
         // rotate same as player
-        ingredient.transform.rotation.Equals(top.transform.rotation);
+        // ingredient.transform.rotation.Equals(top.transform.rotation);
         
         // add to stack
-        ingredient.transform.SetParent(gameObject.transform, false);
+        ingredient.transform.SetParent(_ingredientParent.transform, true);
+        //ingredient.transform.localScale = Vector3.one / _teunScale;
         ingredients.Add(ingredient);
         UpdatePosition();
     }
@@ -112,5 +125,10 @@ public class PlayerIngredients : MonoBehaviour
         {
             collectable.Collect(gameObject);
         }
+    }
+
+    public void SetId(int id)
+    {
+        _id = id;
     }
 }

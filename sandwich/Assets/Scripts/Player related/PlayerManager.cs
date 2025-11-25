@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     [Header("Spawn Points")]
     public Transform[] SpawnPoints;
+    public CameraController cameraController;
 
     public void SetSpawn(PlayerInput player)
     {
@@ -22,6 +23,9 @@ public class PlayerManager : MonoBehaviour
 
         int index = player.playerIndex;
 
+        // add target in camera
+        cameraController.AddTarget(player.transform);
+
         if (index >= SpawnPoints.Length)
         {
             Debug.LogWarning($" Spelerindex {index} groter dan aantal spawnpoints ({SpawnPoints.Length}), gebruik index 0.");
@@ -30,6 +34,7 @@ public class PlayerManager : MonoBehaviour
 
         player.transform.position = SpawnPoints[index].position;
         player.transform.rotation = SpawnPoints[index].rotation;
+
 
         Debug.Log($" Speler {player.playerIndex} gespawned op spawnpoint {index}");
     }

@@ -94,6 +94,7 @@ public class ThirdPersonMovement : MonoBehaviour
             m_currentDashCooldown = m_dashCooldown;
         }
     }
+
     public void ApplySpeedMultiplier(float multiplier, float duration)
     {
         if (speedCoroutine != null)
