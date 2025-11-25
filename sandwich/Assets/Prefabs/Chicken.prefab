@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   m_throwVelocity: 5
   isGrounded: 0
+  _ingredientType: 3
 --- !u!65 &7924655045151054115
 BoxCollider:
   m_ObjectHideFlags: 0

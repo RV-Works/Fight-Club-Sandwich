@@ -10,13 +10,12 @@ public enum Ingredients
     kip,
     bacon,
     cheese,
-    chicken
 }
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    
     public Dictionary<int, List<Ingredients>> Players { get; private set; } = new Dictionary<int, List<Ingredients>>();
 
     private void Awake()
@@ -31,6 +30,11 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             StartCoroutine(LogEverySecond());
         }
+
+        if (GameManager.instance.Players.ContainsKey(sandwichId))
+        {
+            ingredients = GameManager.instance.Players[sandwichId];
+        }
     }
 
     private IEnumerator LogEverySecond()
@@ -41,14 +45,22 @@ public class GameManager : MonoBehaviour
 
             foreach (var player in Players)
             {
-                Debug.Log(player);
+                Debug.Log(player.Value);
             }
         }
     }
 
     public void AddIngredient(int id, Ingredients ingredient)
     {
-        Players[id].Add(ingredient);
+        if (Players.ContainsKey(id))
+        {
+            Players[id].Add(ingredient);
+        }
+        else
+        {
+            Players.Add(id, new List<Ingredients>());
+            Players[id].Add(ingredient);
+        }
     }
 
     public void RemoveIngredient(int id, Ingredients ingredient)

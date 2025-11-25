@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerIngredients : MonoBehaviour
 {
+    public static int s_id;
+
+
     [SerializeField] private GameObject _topBack;
     [SerializeField] private GameObject _topFront;
     [SerializeField] private GameObject _eyeLeft;
@@ -18,6 +21,8 @@ public class PlayerIngredients : MonoBehaviour
 
     private void Start()
     {
+        _id = s_id;
+        s_id++;
         _rb = GetComponent<Rigidbody>();
     }
 
@@ -54,6 +59,10 @@ public class PlayerIngredients : MonoBehaviour
         ingredient.transform.SetParent(_ingredientParent.transform, true);
         //ingredient.transform.localScale = Vector3.one / _teunScale;
         ingredients.Add(ingredient);
+
+        Ingredients type = ingredient.GetComponent<Ingredient>().GetIngredientType();
+        GameManager.instance.AddIngredient(_id, type);
+
         UpdatePosition();
     }
 

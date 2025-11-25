@@ -4,6 +4,7 @@ public class Ingredient : MonoBehaviour, ICollectable
 {
     [SerializeField] private float m_throwVelocity = 3f;
     [SerializeField] private bool isGrounded = false;
+    [SerializeField] private Ingredients _ingredientType;
     private Rigidbody rb;
     private BoxCollider boxCollider;
     private const float GroundY = 0.02f;
@@ -84,5 +85,10 @@ public class Ingredient : MonoBehaviour, ICollectable
             Grounded();
             transform.position = new Vector3(transform.position.x, GroundY, transform.position.z);
         }
+    }
+
+    public Ingredients GetIngredientType()
+    {
+        return _ingredientType;
     }
 }
