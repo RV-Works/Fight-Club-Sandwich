@@ -30,11 +30,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             StartCoroutine(LogEverySecond());
         }
-
-        if (GameManager.instance.Players.ContainsKey(sandwichId))
-        {
-            ingredients = GameManager.instance.Players[sandwichId];
-        }
     }
 
     private IEnumerator LogEverySecond()
