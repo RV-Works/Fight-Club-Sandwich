@@ -21,8 +21,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        transform.position = GetAveragePosition();
-        _mainCamera.orthographicSize = GetDesiredSize();
+        //transform.position = GetAveragePosition();
+        //_mainCamera.orthographicSize = GetDesiredSize();
     }
 
     private void LateUpdate()
