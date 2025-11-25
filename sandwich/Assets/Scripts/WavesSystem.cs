@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class WavesSystem : MonoBehaviour
@@ -113,6 +114,9 @@ public class WavesSystem : MonoBehaviour
                 // All waves finished - log and ensure the UI shows zero time.
                 Debug.Log("All waves finished.");
                 if (timerText != null)
+                {
+                    SceneManager.LoadScene("End");
+                }
                     timerText.text = FormatTime(0f);
             }
         }
