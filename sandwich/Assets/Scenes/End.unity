@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 2
+  dropDelay: 0.05
 --- !u!1 &55855197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
@@ -530,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPoint: {fileID: 1071065970}
-  ingriedents: 
+  ingriedents: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ingriedentObjects:
   - {fileID: 9125472126046260894, guid: a404af3ecfa559640834618c039726db, type: 3}
   - {fileID: 7079330528379914530, guid: 36e5484994004bd4c9c9606cb4352c78, type: 3}
@@ -539,6 +540,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 0
+  dropDelay: 0.05
 --- !u!1001 &1178335061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -656,6 +658,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 1
+  dropDelay: 0.05
 --- !u!1001 &1412792052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -773,6 +776,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 3
+  dropDelay: 0.05
 --- !u!1001 &1867556333
 PrefabInstance:
   m_ObjectHideFlags: 0
