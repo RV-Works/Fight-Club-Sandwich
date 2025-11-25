@@ -72,7 +72,7 @@ public class Ingredient : MonoBehaviour, ICollectable
         boxCollider.isTrigger = true;
     }
 
-    public void Collect(GameObject player)
+    public virtual void Collect(GameObject player)
     {
         boxCollider.enabled = false;
         player.GetComponent<PlayerIngredients>().AddIngredient(gameObject);
