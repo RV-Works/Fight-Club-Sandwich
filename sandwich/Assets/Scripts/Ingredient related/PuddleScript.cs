@@ -23,8 +23,7 @@ public class PuddleScript : MonoBehaviour
 
     void Update()
     {
-        // No per-frame work required for the puddle effect.
-        // Keep this only if you need PlayerMovement for other purposes.
+       
     }
 
     private void ApplySlippery(Rigidbody rb)

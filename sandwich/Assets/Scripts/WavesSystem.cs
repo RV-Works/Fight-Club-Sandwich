@@ -13,19 +13,19 @@ public class WavesSystem : MonoBehaviour
     [SerializeField] private float SpawnInterval = 5f;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float SpawnHeight = 10f;
-    private float _waveTimer;
-    private float _spawnTimer;
-    private bool _waveActive;
-    private int _spawnMultiplier = 1;
+    private float waveTimer;
+    private float spawnTimer;
+    private bool waveActive;
+    private int spawnMultiplier = 1;
 
     // Puddle management
     private readonly List<GameObject> _activePuddles = new List<GameObject>();
     private readonly Dictionary<GameObject, int> _puddleOrigin = new Dictionary<GameObject, int>();
-    private bool _puddleSpawnedWave1;
-    private bool _puddleRemovedWave1;
-    private bool _puddleSpawnedWave2;
-    private bool _puddleRemovedWave2;
-    private bool _puddlesSpawnedWave3;
+    private bool puddleSpawnedWave1;
+    private bool puddleRemovedWave1;
+    private bool puddleSpawnedWave2;
+    private bool puddleRemovedWave2;
+    private bool puddleSpawnedWave3;
 
     void Start()
     {
@@ -37,71 +37,71 @@ public class WavesSystem : MonoBehaviour
     void Update()
     {
         // If no wave is active, do nothing each frame.
-        if (!_waveActive) return;
+        if (!waveActive) return;
 
         // Decrease the wave and spawn timers by elapsed time since last frame.
-        _waveTimer -= Time.deltaTime;
-        _spawnTimer -= Time.deltaTime;
+        waveTimer -= Time.deltaTime;
+        spawnTimer -= Time.deltaTime;
 
         if (timerText != null)
-            timerText.text = FormatTime(Mathf.Max(0f, _waveTimer));
+            timerText.text = FormatTime(Mathf.Max(0f, waveTimer));
 
         // Wave-specific puddle logic
         switch (WavesCount)
         {
             case 1:
                 // Spawn one puddle at the start of wave 1 (once)
-                if (!_puddleSpawnedWave1)
+                if (!puddleSpawnedWave1)
                 {
                     SpawnPuddleForWave(1);
-                    _puddleSpawnedWave1 = true;
+                    puddleSpawnedWave1 = true;
                 }
 
                 // Remove wave1 puddle when timer hits 10 seconds left
-                if (!_puddleRemovedWave1 && _waveTimer <= 10f)
+                if (!puddleRemovedWave1 && waveTimer <= 10f)
                 {
                     RemovePuddlesForWave(1);
-                    _puddleRemovedWave1 = true;
+                    puddleRemovedWave1 = true;
                 }
                 break;
 
             case 2:
                 // Spawn one puddle when there's 20 seconds left in wave 2
-                if (!_puddleSpawnedWave2 && _waveTimer <= 20f)
+                if (!puddleSpawnedWave2 && waveTimer <= 20f)
                 {
                     SpawnPuddleForWave(2);
-                    _puddleSpawnedWave2 = true;
+                    puddleSpawnedWave2 = true;
                 }
 
                 // Remove the wave2 puddle when there's 5 seconds left
-                if (!_puddleRemovedWave2 && _waveTimer <= 5f)
+                if (!puddleRemovedWave2 && waveTimer <= 5f)
                 {
                     RemovePuddlesForWave(2);
-                    _puddleRemovedWave2 = true;
+                    puddleRemovedWave2 = true;
                 }
                 break;
 
             case 3:
                 // Spawn two puddles at the start of wave 3 and keep them
-                if (!_puddlesSpawnedWave3)
+                if (!puddleSpawnedWave3)
                 {
                     SpawnPuddleForWave(3);
                     SpawnPuddleForWave(3);
-                    _puddlesSpawnedWave3 = true;
+                    puddleSpawnedWave3 = true;
                 }
                 break;
         }
 
         // When the spawn timer reaches zero or below, spawn all configured prefabs and reset the spawn timer.
-        if (_spawnTimer <= 0f)
+        if (spawnTimer <= 0f)
         {
-            SpawnAll(_spawnMultiplier);
-            _spawnTimer = SpawnInterval;
+            SpawnAll(spawnMultiplier);
+            spawnTimer = SpawnInterval;
         }
 
-        if (_waveTimer <= 0f)
+        if (waveTimer <= 0f)
         {
-            _waveActive = false;
+            waveActive = false;
             WavesCount++;
 
             if (WavesCount <= 3)
@@ -120,34 +120,34 @@ public class WavesSystem : MonoBehaviour
 
     private void StartWave(int waveNumber)
     {
-        _waveTimer = Timer;
-        _waveActive = true;
-        _spawnTimer = 0f;
+        waveTimer = Timer;
+        waveActive = true;
+        spawnTimer = 0f;
 
         // Reset per-wave puddle flags for the new wave (we keep previously spawned puddles unless removed explicitly)
-        _puddleSpawnedWave1 = false;
-        _puddleRemovedWave1 = false;
-        _puddleSpawnedWave2 = false;
-        _puddleRemovedWave2 = false;
-        _puddlesSpawnedWave3 = false;
+        puddleSpawnedWave1 = false;
+        puddleRemovedWave1 = false;
+        puddleSpawnedWave2 = false;
+        puddleRemovedWave2 = false;
+        puddleSpawnedWave3 = false;
 
         switch (waveNumber)
         {
             case 1:
-                _spawnMultiplier = 1;
-                SpawnAll(_spawnMultiplier);
-                _spawnTimer = SpawnInterval;
+                spawnMultiplier = 1;
+                SpawnAll(spawnMultiplier);
+                spawnTimer = SpawnInterval;
                 // spawn happens in Update logic at start of wave
                 break;
             case 2:
-                _spawnMultiplier = 2; // double the number of instances spawned per spawn event
-                SpawnAll(_spawnMultiplier);
-                _spawnTimer = SpawnInterval;
+                spawnMultiplier = 2; // double the number of instances spawned per spawn event
+                SpawnAll(spawnMultiplier);
+                spawnTimer = SpawnInterval;
                 break;
             case 3:
-                _spawnMultiplier = 3; // triple the number of instances spawned per spawn event
-                SpawnAll(_spawnMultiplier);
-                _spawnTimer = SpawnInterval;
+                spawnMultiplier = 3; // triple the number of instances spawned per spawn event
+                SpawnAll(spawnMultiplier);
+                spawnTimer = SpawnInterval;
                 // puddles for wave 3 spawn in Update logic
                 break;
             default:
@@ -158,9 +158,9 @@ public class WavesSystem : MonoBehaviour
 
         // Update the UI immediately to show the remaining time for the new wave.
         if (timerText != null)
-            timerText.text = FormatTime(_waveTimer);
+            timerText.text = FormatTime(waveTimer);
 
-        Debug.Log($"Wave {waveNumber} started. Duration: {_waveTimer}s, spawn every {SpawnInterval}s (multiplier: {_spawnMultiplier})");
+        Debug.Log($"Wave {waveNumber} started. Duration: {waveTimer}s, spawn every {SpawnInterval}s (multiplier: {spawnMultiplier})");
     }
 
     private void SpawnAll(int multiplier = 1)
@@ -294,7 +294,7 @@ public class WavesSystem : MonoBehaviour
 
         // Ensure the UI shows the starting wave timer immediately after starting.
         if (timerText != null)
-            timerText.text = FormatTime(_waveTimer);
+            timerText.text = FormatTime(waveTimer);
     }
 
 
