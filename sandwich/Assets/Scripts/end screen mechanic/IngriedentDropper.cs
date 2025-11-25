@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngriedentDropper : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class IngriedentDropper : MonoBehaviour
     [SerializeField] List<Ingredients> ingriedents = new List<Ingredients>();
     [SerializeField] List<GameObject> ingriedentObjects = new List<GameObject>();
     [SerializeField] int SandwichID;
-    [SerializeField] TMPro.TMP_Text ScorePP;
+    [SerializeField] Text Texttmp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
