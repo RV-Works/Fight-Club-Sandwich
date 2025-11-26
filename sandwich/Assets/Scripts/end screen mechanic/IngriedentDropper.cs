@@ -11,7 +11,7 @@ public class IngriedentDropper : MonoBehaviour
     [SerializeField] List<Ingredients> ingriedents = new List<Ingredients>();
     [SerializeField] List<GameObject> ingriedentObjects = new List<GameObject>();
     [SerializeField] int SandwichID;
-
+    [SerializeField] float Score;
     [SerializeField] float dropDelay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,5 +39,13 @@ public class IngriedentDropper : MonoBehaviour
             yield return new WaitForSeconds(dropDelay);
         }
         yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ingriedent"))
+        {
+            Score += 1;
+        }
     }
 }
