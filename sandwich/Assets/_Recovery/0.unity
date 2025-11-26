@@ -173,7 +173,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 2
-  dropDelay: 0.05
+  dropDelay: 0
 --- !u!1 &55855197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
@@ -589,10 +589,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3f0a4a7d2f6593b4792c588e0fa88b2d, type: 2}
     - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
       propertyPath: m_Name
       value: sandwich bitch bottom 1 (1)
@@ -662,7 +658,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 1
-  dropDelay: 0.05
+  dropDelay: 0
 --- !u!1001 &1412792052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -711,10 +707,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: bf7bcf39a3ea71444a099d10d45f346f, type: 2}
     - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
       propertyPath: m_Name
       value: sandwich bitch bottom 1 (2)
@@ -784,7 +776,7 @@ MonoBehaviour:
   - {fileID: 5280752991823359718, guid: e92f0a8156c754e408dbcb24c70bf27e, type: 3}
   - {fileID: 2585568181369525521, guid: f32be4033e06b894699f6b4dba308680, type: 3}
   SandwichID: 3
-  dropDelay: 0.05
+  dropDelay: 0
 --- !u!1001 &1867556333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -833,10 +825,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: fd4053716af0a79439dca233fe849708, type: 2}
     - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
       propertyPath: m_Name
       value: sandwich bitch bottom 1 (3)
@@ -900,10 +888,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 9a1ce27041cb60b47abc553130015599, type: 2}
     - target: {fileID: 919132149155446097, guid: c2df55b7d4943bf4f819ef14aa9c6f1b, type: 3}
       propertyPath: m_Name
       value: sandwich bitch bottom 1
