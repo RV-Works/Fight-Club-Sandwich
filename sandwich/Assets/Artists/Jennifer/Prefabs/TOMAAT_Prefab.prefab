@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 172c3dfdaa92b8742bcf9fd2e8b494cc, type: 2}
     - target: {fileID: 919132149155446097, guid: d6c523bff0cfb134b952e64fd33c98a3, type: 3}
       propertyPath: m_Name
-      value: TOMAAT
+      value: TOMAAT_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
