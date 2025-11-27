@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
     }
 
     public event buttonDelegate dashEvent;
+    public event buttonDelegate useItemEvent;
     public event vector2Delegate moveEvent;
 
     private void Awake()
@@ -34,7 +35,9 @@ public class InputManager : MonoBehaviour
         player.FindAction("Move").performed += OnMove;
         player.FindAction("Move").canceled += OnMove;
 
+        // buttons
         player.FindAction("Dash").performed += OnDash;
+        player.FindAction("Attack").performed += OnAttack;
 
         player.Enable();
     }
@@ -47,8 +50,8 @@ public class InputManager : MonoBehaviour
 
         // buttons
         player.FindAction("Dash").performed -= OnDash;
+        player.FindAction("Attack").performed -= OnAttack;
 
-        
         player.Disable();
     }
 
@@ -62,5 +65,11 @@ public class InputManager : MonoBehaviour
     {
         // if any are connected invoke
         dashEvent?.Invoke();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        // if connected invoke
+        useItemEvent?.Invoke();
     }
 }

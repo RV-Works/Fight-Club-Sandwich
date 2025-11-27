@@ -1,9 +1,55 @@
 using UnityEngine;
 
-public class SabotageItem : MonoBehaviour, ICollectable
+public abstract class SabotageItem : MonoBehaviour, ICollectable
 {
-    public void Collect(GameObject player)
-    {
+    private Rigidbody rb;
+    private BoxCollider boxCollider;
+    private LayerMask playerLayer;
+    private LayerMask nothingLayer;
+    private bool isGrounded;
+    private const RigidbodyConstraints onGroundConstraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+    private const float GroundY = 0.02f;
 
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+        playerLayer = LayerMask.GetMask("Player");
+        nothingLayer = LayerMask.GetMask("Nothing");
     }
+
+    private void Update()
+    {
+        if (rb == null) return;
+
+        // When ingredient reaches Y <= 0.02 turn off gravity once
+        if (!isGrounded && transform.position.y <= GroundY)
+        {
+            Grounded();
+            transform.position = new Vector3(transform.position.x, GroundY, transform.position.z);
+        }
+    }
+
+    private void Grounded()
+    {
+        // player can interact
+        boxCollider.excludeLayers = nothingLayer;
+
+        isGrounded = true;
+        rb.useGravity = false;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // disable RigidBody X and Y movement
+        rb.constraints = onGroundConstraints;
+        boxCollider.isTrigger = true;
+    }
+
+    public virtual void Collect(GameObject player)
+    {
+        player.GetComponent<PlayerPickup>().TrySetPickup(this);
+        Debug.Log("Collect: " + gameObject.name);
+    }
+
+    public abstract void Activate();
 }

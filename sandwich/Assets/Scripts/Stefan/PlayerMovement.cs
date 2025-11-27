@@ -21,8 +21,11 @@ public class ThirdPersonMovement : MonoBehaviour
     private float baseSpeed;
     private Coroutine speedCoroutine;
 
+    private bool _performDash;
     private bool moving = false;
-    public event animationDelagete onMoveChange;
+    public event animationDelagete OnMoveChange;
+    public event animationDelagete OnDash;
+
 
     private void Start()
     {
@@ -49,13 +52,29 @@ public class ThirdPersonMovement : MonoBehaviour
         if (m_inputManager == null)
             return;
 
+        // dash
+        if (_performDash)
+        {
+            if (m_currentDashCooldown <= 0f)
+            {
+                // add force
+                m_rigidBody.AddRelativeForce(Vector3.forward * m_dashForce);
+                
+                // play animation
+                OnDash?.Invoke(true);
+                
+                m_currentDashCooldown = m_dashCooldown;
+            }
+            _performDash = false;
+        }
+
         // moving
         if (moveInput.x != 0f || moveInput.z != 0f)
         {
             if (!moving)
             {
                 moving = true;
-                onMoveChange.Invoke(true);
+                OnMoveChange.Invoke(true);
             }
 
             // move character
@@ -71,7 +90,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if (moving)
             {
                 moving = false;
-                onMoveChange?.Invoke(false);
+                OnMoveChange?.Invoke(false);
             }
         }
 
@@ -90,8 +109,7 @@ public class ThirdPersonMovement : MonoBehaviour
         // dash
         if (m_currentDashCooldown <= 0f)
         {
-            m_rigidBody.AddRelativeForce(Vector3.forward * m_dashForce);
-            m_currentDashCooldown = m_dashCooldown;
+            _performDash = true;
         }
     }
 

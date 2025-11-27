@@ -2049,7 +2049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1825396750
 Transform:
   m_ObjectHideFlags: 0
@@ -2167,7 +2167,8 @@ MonoBehaviour:
   - {fileID: 3220059473017655978, guid: 5aaf5565523ae1346912091f223a8523, type: 3}
   - {fileID: 3220059473017655978, guid: 05d48d37564bd4541941e1dcc1aabca6, type: 3}
   - {fileID: 3220059473017655978, guid: 771902bb7d491f246b97938d2efbfd1b, type: 3}
-  sabotageItems: []
+  sabotageItems:
+  - {fileID: 2052030207911867461, guid: 5905359cf190c234b8165b58b59e158a, type: 3}
   puddles:
   - {fileID: 5293982411340765602, guid: ec98d85221307dc4bb5a8205b16f7d3f, type: 3}
   WavesCount: 1
