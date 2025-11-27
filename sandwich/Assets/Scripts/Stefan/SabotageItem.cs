@@ -47,7 +47,8 @@ public abstract class SabotageItem : MonoBehaviour, ICollectable
 
     public virtual void Collect(GameObject player)
     {
-        player.GetComponent<PlayerPickup>().TrySetPickup(this);
+        if (!player.GetComponent<PlayerPickup>().TrySetPickup(this))
+            return;
         Debug.Log("Collect: " + gameObject.name);
     }
 

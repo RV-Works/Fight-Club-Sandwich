@@ -57,7 +57,7 @@ public class Ingredient : MonoBehaviour, ICollectable
         boxCollider.enabled = true;
     }
 
-    private void Grounded()
+    internal void Grounded()
     {
         // player can interact
         boxCollider.excludeLayers = nothingLayer;
@@ -78,7 +78,7 @@ public class Ingredient : MonoBehaviour, ICollectable
         player.GetComponent<PlayerIngredients>().AddIngredient(gameObject);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    internal virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {

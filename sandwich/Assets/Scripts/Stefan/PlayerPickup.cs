@@ -8,6 +8,7 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private PlayerAnimationController _animationController;
     [SerializeField] private GameObject _ingredientParent;
     private SabotageItem _currentItem = null;
+    private bool _usedItem;
 
     public event PlayerPickupCallback OnUsePickup;
 
@@ -23,23 +24,31 @@ public class PlayerPickup : MonoBehaviour
 
     private void Use()
     {
-        if (_currentItem == null)
+        if (_currentItem == null || _usedItem == true)
             return;
-
         
-        _currentItem.Activate();
         OnUsePickup?.Invoke();
+        _usedItem = true;
     }
 
-    public void TrySetPickup(SabotageItem item)
+    public void OnThrowAnimationFinish()
+    {
+        _currentItem.Activate();
+        Destroy(_currentItem.gameObject);
+        _usedItem = false;
+        _currentItem = null;
+    }
+
+    public bool TrySetPickup(SabotageItem item)
     {
         if (_currentItem != null)
-            return;
+            return false;
 
         // add to stack
         item.transform.SetParent(_ingredientParent.transform, true);
         item.transform.localPosition = Vector3.zero;
         _currentItem = item;
 
+        return true;
     }
 }
