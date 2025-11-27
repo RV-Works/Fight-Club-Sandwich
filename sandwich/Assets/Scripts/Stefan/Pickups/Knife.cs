@@ -16,12 +16,15 @@ public class Knife : SabotageItem
             return;
 
         base.Collect(player);
-        _collected = true;
+
+        if (hasAcceptedItem)
+            _collected = true;
     }
 
     public override void Activate()
     {
-        // use fork
+        // use knife
+
 
     }
 }

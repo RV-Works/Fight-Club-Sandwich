@@ -9,6 +9,7 @@ public abstract class SabotageItem : MonoBehaviour, ICollectable
     private bool isGrounded;
     private const RigidbodyConstraints onGroundConstraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
     private const float GroundY = 0.02f;
+    internal bool hasAcceptedItem;
 
     void Awake()
     {
@@ -47,7 +48,8 @@ public abstract class SabotageItem : MonoBehaviour, ICollectable
 
     public virtual void Collect(GameObject player)
     {
-        if (!player.GetComponent<PlayerPickup>().TrySetPickup(this))
+        hasAcceptedItem = player.GetComponent<PlayerPickup>().TrySetPickup(this);
+        if (!hasAcceptedItem)
             return;
         Debug.Log("Collect: " + gameObject.name);
     }

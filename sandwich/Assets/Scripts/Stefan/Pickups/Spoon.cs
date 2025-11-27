@@ -1,16 +1,30 @@
 using UnityEngine;
 
-public class Spoon : MonoBehaviour
+public class Spoon : SabotageItem
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private BoxCollider _boxCollider;
+    private bool _collected;
+
+    private void Start()
     {
-        
+        _boxCollider = GetComponent<BoxCollider>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Collect(GameObject player)
     {
-        
+        if (_collected)
+            return;
+
+        base.Collect(player);
+
+        if (hasAcceptedItem)
+            _collected = true;
+    }
+
+    public override void Activate()
+    {
+        // use knife
+
+
     }
 }

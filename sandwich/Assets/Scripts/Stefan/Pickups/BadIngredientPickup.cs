@@ -15,8 +15,12 @@ public class BadIngredientPickup : SabotageItem
     public override void Collect(GameObject player)
     {
         base.Collect(player);
-        _player = player;
-        // _boxCollider.enabled = false;
+
+        if (hasAcceptedItem)
+        {
+            _player = player;
+            _boxCollider.enabled = false;
+        }
     }
 
     public override void Activate()
