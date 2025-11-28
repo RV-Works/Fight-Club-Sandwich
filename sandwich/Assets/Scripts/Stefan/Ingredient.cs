@@ -39,7 +39,7 @@ public class Ingredient : MonoBehaviour, ICollectable
         }
     }
 
-    public void Throw()
+    public void ThrowOffStack()
     {
         // enable rigidbody movement
         rb.constraints = inAirConstraints;

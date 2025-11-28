@@ -47,6 +47,8 @@ public class PlayerPickup : MonoBehaviour
         // add to stack
         item.transform.SetParent(_ingredientParent.transform, true);
         item.transform.localPosition = Vector3.zero;
+        Quaternion rotation = Quaternion.FromToRotation(new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z), new Vector3(0, 0, 0));
+        item.transform.localRotation = rotation;
         _currentItem = item;
 
         return true;

@@ -80,7 +80,7 @@ public class PlayerIngredients : MonoBehaviour
                 GameObject ingredient = ingredients.Last();
                 ingredients.Remove(ingredient);
                 ingredient.transform.SetParent(null);
-                ingredient.GetComponent<Ingredient>().Throw();
+                ingredient.GetComponent<Ingredient>().ThrowOffStack();
             }
             else 
             { 

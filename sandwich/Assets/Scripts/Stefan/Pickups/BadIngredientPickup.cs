@@ -26,11 +26,15 @@ public class BadIngredientPickup : SabotageItem
     public override void Activate()
     {
         // throw ingredient
-        GameObject ingredient = Instantiate(_throwPrefab, transform.position, _player.transform.rotation);
-        ingredient.GetComponent<BadIngredient>().ImmuneThrowPlayer(_player);
+        GameObject throwableObject = Instantiate(_throwPrefab, transform.position, _player.transform.rotation);
 
-        ingredient.GetComponent<Rigidbody>().AddForce(_player.transform.forward * _throwSpeed);
+        if (throwableObject.TryGetComponent<IThrowable>(out IThrowable throwable))
+        {
+            throwable.Throw(_player);
+        }
 
-        Debug.Log("Activate: " + gameObject.name);
+        throwableObject.GetComponent<Rigidbody>().AddForce(_player.transform.forward * _throwSpeed);
+
+        Debug.Log("Activated: " + gameObject.name);
     }
 }

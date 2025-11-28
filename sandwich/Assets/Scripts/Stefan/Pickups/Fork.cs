@@ -1,30 +1,28 @@
+using System.Collections;
 using UnityEngine;
 
-public class Fork : SabotageItem
+public class Fork : MonoBehaviour, IThrowable
 {
-    private BoxCollider _boxCollider;
-    private bool _collected;
-
-    private void Start()
+    [SerializeField] private float stunTime = 2f;
+    private GameObject _thrownPlayer;
+    private void OnCollisionEnter(Collision collision)
     {
-        _boxCollider = GetComponent<BoxCollider>();
-    }
-
-    public override void Collect(GameObject player)
-    {
-        if (_collected)
+        if (collision.gameObject == _thrownPlayer)
             return;
 
-        base.Collect(player);
-        
-        if (hasAcceptedItem)
-            _collected = true;
+        if (collision.collider.CompareTag("Player"))
+        {
+            if (collision.collider.TryGetComponent<ThirdPersonMovement>(out ThirdPersonMovement playerMovement))
+            {
+                playerMovement.Stun(2);
+            }
+        }
+
+        Destroy(gameObject);
     }
 
-    public override void Activate()
+    public void Throw(GameObject player)
     {
-        // use fork
-
-        
+        _thrownPlayer = player;
     }
 }

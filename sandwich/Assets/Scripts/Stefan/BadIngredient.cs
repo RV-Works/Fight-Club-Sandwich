@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BadIngredient : Ingredient
+public class BadIngredient : Ingredient, IThrowable
 {
     private GameObject _thrownPlayer;
 
@@ -19,6 +19,11 @@ public class BadIngredient : Ingredient
         }
 
         base.OnCollisionEnter(collision);
+    }
+
+    public void Throw(GameObject player)
+    {
+        StartCoroutine(ImmuneThrowPlayer(player));
     }
 
     public IEnumerator ImmuneThrowPlayer(GameObject player)

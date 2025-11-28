@@ -123,22 +123,24 @@ public class ThirdPersonMovement : MonoBehaviour
         speedCoroutine = StartCoroutine(ApplySpeedMultiplierCoroutine(multiplier, duration));
     }
 
-    public void Stun()
+    public void Stun(float time)
     {
+        Debug.Log("stun");
+
         if (_stunCoroutine != null)
         {
             StopCoroutine(_stunCoroutine);
         }
-        StartCoroutine(Stunned());
+        StartCoroutine(Stunned(time));
     }
 
-    private IEnumerator Stunned()
+    private IEnumerator Stunned(float stunTime)
     {
         _isStunned = true;
         m_rigidBody.linearVelocity = Vector3.zero;
         m_rigidBody.angularVelocity = Vector3.zero;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(stunTime);
         _isStunned = false;
     }
 

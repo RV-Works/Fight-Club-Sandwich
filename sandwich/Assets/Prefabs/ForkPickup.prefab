@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445594903946740761}
-  - component: {fileID: 1302256342457462815}
+  - component: {fileID: 7895599083423219604}
   - component: {fileID: 1328584344626909879}
   - component: {fileID: 1254426648508330583}
   m_Layer: 0
-  m_Name: Fork
+  m_Name: ForkPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2971790343976765033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1302256342457462815
+--- !u!114 &7895599083423219604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,9 +44,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7649246830754820589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e236bc6998318584aba8a20e48a41f7f, type: 3}
+  m_Script: {fileID: 11500000, guid: ba2b841967f9a034889cb85fde664414, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fork
+  m_EditorClassIdentifier: Assembly-CSharp::BadIngredientPickup
+  _throwPrefab: {fileID: 7649246830754820589, guid: c2faf1d39f943a64c96dea29ddc9c17c, type: 3}
+  _throwSpeed: 1000
 --- !u!65 &1328584344626909879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60,14 +62,14 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.63, y: 0.2, z: 3.16}
-  m_Center: {x: 0, y: 0, z: 0.74}
+  m_Size: {x: 0.63, y: 1.2, z: 3.1600003}
+  m_Center: {x: 0, y: 0.5, z: 0.74}
 --- !u!54 &1254426648508330583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -93,7 +95,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!1001 &3011302138692465590
 PrefabInstance:
