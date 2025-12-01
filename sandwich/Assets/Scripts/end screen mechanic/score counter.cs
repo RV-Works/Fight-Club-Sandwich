@@ -20,7 +20,14 @@ public class scorecounter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Score++;
+        if (other.gameObject.CompareTag("Yum"))
+        {
+            Score++;
+        }
+        if (other.gameObject.CompareTag("Eugh"))
+        {
+            Score--;
+        }
 
     }
 }

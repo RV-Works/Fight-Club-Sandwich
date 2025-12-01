@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6139810512940877645}
   m_Layer: 0
   m_Name: Bacon_Prefab
-  m_TagString: Untagged
+  m_TagString: Yum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
