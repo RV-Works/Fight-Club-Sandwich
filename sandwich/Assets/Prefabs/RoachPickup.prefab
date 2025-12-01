@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &919193257718172386
+--- !u!1 &3373136046174283832
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,76 +8,75 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8877801915336144215}
-  - component: {fileID: 3220059473017655978}
-  - component: {fileID: 7924655045151054115}
-  - component: {fileID: 2353741559079572375}
+  - component: {fileID: 2142150822470873978}
+  - component: {fileID: 2052030207911867461}
+  - component: {fileID: 6059585788466754800}
+  - component: {fileID: 2994928999294332517}
   m_Layer: 0
-  m_Name: Chicken
+  m_Name: RoachPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8877801915336144215
+--- !u!4 &2142150822470873978
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919193257718172386}
+  m_GameObject: {fileID: 3373136046174283832}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 340760877341383645}
+  - {fileID: 1484084205289586874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3220059473017655978
+--- !u!114 &2052030207911867461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919193257718172386}
+  m_GameObject: {fileID: 3373136046174283832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b486c99521900c2488e147d6151fb4a4, type: 3}
+  m_Script: {fileID: 11500000, guid: ba2b841967f9a034889cb85fde664414, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  m_throwVelocity: 5
-  isGrounded: 0
-  _ingredientType: 3
---- !u!65 &7924655045151054115
+  m_EditorClassIdentifier: Assembly-CSharp::BadIngredientPickup
+  _throwPrefab: {fileID: 3373136046174283832, guid: cf40e1b3ccf418440b806f2590163cad, type: 3}
+  _throwSpeed: 1000
+--- !u!65 &6059585788466754800
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919193257718172386}
+  m_GameObject: {fileID: 3373136046174283832}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.41745466, y: 0.42368242, z: 0.89243734}
-  m_Center: {x: 0.000000007450581, y: 0.21325524, z: 0.17058639}
---- !u!54 &2353741559079572375
+  m_Size: {x: 0.8382113, y: 0.2623559, z: 1.0776808}
+  m_Center: {x: -0.000000014901161, y: 0.13205765, z: 0.06452638}
+--- !u!54 &2994928999294332517
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919193257718172386}
+  m_GameObject: {fileID: 3373136046174283832}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -98,77 +97,65 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!1001 &1148998906218353505
+--- !u!1001 &4876324602267748319
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8877801915336144215}
+    m_TransformParent: {fileID: 2142150822470873978}
     m_Modifications:
-    - target: {fileID: 951009267274246, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
-      propertyPath: m_Name
-      value: Chicken_Leg_Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 951009267274246, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
+    - target: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1946571538314720211, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
+    - target: {fileID: 6665179528024251871, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
+      propertyPath: m_Name
+      value: Cockroach_Prefab
       objectReference: {fileID: 0}
-    - target: {fileID: 1946571538314720211, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: ad4c158eec0d0624b8618c00338a9104, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
---- !u!4 &340760877341383645 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
+--- !u!4 &1484084205289586874 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 813093644125702332, guid: b33885c64a0d25647a3fa0994da587d7, type: 3}
-  m_PrefabInstance: {fileID: 1148998906218353505}
+  m_CorrespondingSourceObject: {fileID: 6283834138397443941, guid: cdc8f3d7d93ae1542b74c2dca7fd34b8, type: 3}
+  m_PrefabInstance: {fileID: 4876324602267748319}
   m_PrefabAsset: {fileID: 0}
