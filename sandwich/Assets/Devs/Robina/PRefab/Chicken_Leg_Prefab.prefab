@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 75164457688738687}
   m_Layer: 0
   m_Name: Chicken_Leg_Prefab
-  m_TagString: Untagged
+  m_TagString: Yum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
