@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +6,9 @@ public enum Ingredients
     sla,
     tomaat,
     ham,
-    kip,
+    chicken,
     bacon,
-    cheese,
+    cheese
 }
 
 public class GameManager : MonoBehaviour
@@ -27,7 +26,7 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
         }
     }
 

@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2b841967f9a034889cb85fde664414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BadIngredientPickup
-  _throwPrefab: {fileID: 0}
+  _throwPrefab: {fileID: 3373136046174283832, guid: 092b317ad3dab6d418c484a36ef4d3e1, type: 3}
+  _throwSpeed: 1000
 --- !u!65 &6059585788466754800
 BoxCollider:
   m_ObjectHideFlags: 0

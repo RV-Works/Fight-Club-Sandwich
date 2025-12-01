@@ -56,7 +56,9 @@ public class PlayerIngredients : MonoBehaviour
     {
         // rotate same as player
         // ingredient.transform.rotation.Equals(top.transform.rotation);
-        
+        ingredient.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        ingredient.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
         // add to stack
         ingredient.transform.SetParent(_ingredientParent.transform, true);
         //ingredient.transform.localScale = Vector3.one / _teunScale;
@@ -78,7 +80,7 @@ public class PlayerIngredients : MonoBehaviour
                 GameObject ingredient = ingredients.Last();
                 ingredients.Remove(ingredient);
                 ingredient.transform.SetParent(null);
-                ingredient.GetComponent<Ingredient>().Throw();
+                ingredient.GetComponent<Ingredient>().ThrowOffStack();
             }
             else 
             { 

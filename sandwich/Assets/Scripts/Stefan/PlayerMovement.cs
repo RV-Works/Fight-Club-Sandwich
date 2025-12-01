@@ -11,6 +11,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private float m_dashForce = 10f;
     [SerializeField] private float m_dashCooldown = 2f;
     [SerializeField] private InputManager m_inputManager;
+    [SerializeField] private bool _isStunned;
 
     private Vector3 moveInput;
 
@@ -20,6 +21,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private float baseSpeed;
     private Coroutine speedCoroutine;
+    private Coroutine _stunCoroutine;
 
     private bool _performDash;
     private bool moving = false;
@@ -49,7 +51,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (m_inputManager == null)
+        if (m_currentDashCooldown > 0f)
+            m_currentDashCooldown -= Time.deltaTime;
+
+        if (m_inputManager == null || _isStunned)
             return;
 
         // dash
@@ -93,9 +98,6 @@ public class ThirdPersonMovement : MonoBehaviour
                 OnMoveChange?.Invoke(false);
             }
         }
-
-        if (m_currentDashCooldown > 0f)
-            m_currentDashCooldown -= Time.deltaTime;
     }
 
     private void SetMove(Vector2 setMoveInput)
@@ -119,6 +121,27 @@ public class ThirdPersonMovement : MonoBehaviour
             StopCoroutine(speedCoroutine);
 
         speedCoroutine = StartCoroutine(ApplySpeedMultiplierCoroutine(multiplier, duration));
+    }
+
+    public void Stun(float time)
+    {
+        Debug.Log("stun");
+
+        if (_stunCoroutine != null)
+        {
+            StopCoroutine(_stunCoroutine);
+        }
+        StartCoroutine(Stunned(time));
+    }
+
+    private IEnumerator Stunned(float stunTime)
+    {
+        _isStunned = true;
+        m_rigidBody.linearVelocity = Vector3.zero;
+        m_rigidBody.angularVelocity = Vector3.zero;
+
+        yield return new WaitForSeconds(stunTime);
+        _isStunned = false;
     }
 
     private IEnumerator ApplySpeedMultiplierCoroutine(float multiplier, float duration)

@@ -32,8 +32,8 @@ public class PlayerManager : MonoBehaviour
             index = 0;
         }
 
-        player.transform.position = SpawnPoints[index].position;
-        player.transform.rotation = SpawnPoints[index].rotation;
+        player.transform.parent.position = SpawnPoints[index].position;
+        player.transform.parent.rotation = SpawnPoints[index].rotation;
 
 
         Debug.Log($" Speler {player.playerIndex} gespawned op spawnpoint {index}");
