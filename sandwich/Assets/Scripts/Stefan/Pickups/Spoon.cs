@@ -17,11 +17,6 @@ public class Spoon : MonoBehaviour, IThrowable
             {
                 playerRb.AddExplosionForce(_forceToAdd, transform.position, 50);
             }
-
-            if (collision.collider.TryGetComponent<ThirdPersonMovement>(out var player))
-            {
-
-            }
         }
 
         Destroy(gameObject);

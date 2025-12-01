@@ -35,6 +35,7 @@ public abstract class SabotageItem : MonoBehaviour, ICollectable
     {
         // player can interact
         boxCollider.excludeLayers = nothingLayer;
+        boxCollider.isTrigger = true;
 
         isGrounded = true;
         rb.useGravity = false;
@@ -43,7 +44,6 @@ public abstract class SabotageItem : MonoBehaviour, ICollectable
 
         // disable RigidBody X and Y movement
         rb.constraints = onGroundConstraints;
-        boxCollider.isTrigger = true;
     }
 
     public virtual void Collect(GameObject player)
@@ -52,6 +52,14 @@ public abstract class SabotageItem : MonoBehaviour, ICollectable
         if (!hasAcceptedItem)
             return;
         Debug.Log("Collect: " + gameObject.name);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            Grounded();
+        }
     }
 
     public abstract void Activate();
