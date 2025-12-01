@@ -1,30 +1,28 @@
 using UnityEngine;
 
-public class Knife : SabotageItem
+public class Knife : MonoBehaviour, IThrowable
 {
-    private BoxCollider _boxCollider;
-    private bool _collected;
+    [SerializeField] private int loseIngredients = 5;
+    private GameObject _thrownPlayer;
 
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        _boxCollider = GetComponent<BoxCollider>();
-    }
-
-    public override void Collect(GameObject player)
-    {
-        if (_collected)
+        if (collision.gameObject == _thrownPlayer)
             return;
 
-        base.Collect(player);
+        if (collision.collider.CompareTag("Player"))
+        {
+            if (collision.collider.TryGetComponent<PlayerIngredients>(out var playerMovement))
+            {
+                playerMovement.LoseIngredient(loseIngredients);
+            }
+        }
 
-        if (hasAcceptedItem)
-            _collected = true;
+        Destroy(gameObject);
     }
 
-    public override void Activate()
+    public void Throw(GameObject player)
     {
-        // use knife
-
-
+        _thrownPlayer = player;
     }
 }

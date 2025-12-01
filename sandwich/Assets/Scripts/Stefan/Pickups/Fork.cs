@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Fork : MonoBehaviour, IThrowable
@@ -14,7 +13,7 @@ public class Fork : MonoBehaviour, IThrowable
         {
             if (collision.collider.TryGetComponent<ThirdPersonMovement>(out ThirdPersonMovement playerMovement))
             {
-                playerMovement.Stun(2);
+                playerMovement.Stun(stunTime);
             }
         }
 

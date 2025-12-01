@@ -1,30 +1,34 @@
 using UnityEngine;
 
-public class Spoon : SabotageItem
+public class Spoon : MonoBehaviour, IThrowable
 {
-    private BoxCollider _boxCollider;
-    private bool _collected;
+    [SerializeField] private float _forceToAdd = 200f;
+    private GameObject _thrownPlayer;
 
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        _boxCollider = GetComponent<BoxCollider>();
-    }
-
-    public override void Collect(GameObject player)
-    {
-        if (_collected)
+        if (collision.gameObject == _thrownPlayer)
             return;
 
-        base.Collect(player);
+        if (collision.collider.CompareTag("Player"))
+        {
+            Rigidbody playerRb = collision.rigidbody;
+            if (playerRb != null)
+            {
+                playerRb.AddExplosionForce(_forceToAdd, transform.position, 50);
+            }
 
-        if (hasAcceptedItem)
-            _collected = true;
+            if (collision.collider.TryGetComponent<ThirdPersonMovement>(out var player))
+            {
+
+            }
+        }
+
+        Destroy(gameObject);
     }
 
-    public override void Activate()
+    public void Throw(GameObject player)
     {
-        // use knife
-
-
+        _thrownPlayer = player;
     }
 }
