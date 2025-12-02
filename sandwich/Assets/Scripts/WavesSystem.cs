@@ -19,6 +19,12 @@ public class WavesSystem : MonoBehaviour
     private bool waveActive;
     private int spawnMultiplier = 1;
 
+    // Sabotage-per-wave limits (inclusive)
+    [SerializeField] private int MinSabotagePerWave = 4;
+    [SerializeField] private int MaxSabotagePerWave = 6;
+    private int _sabotageSpawnedThisWave;
+    private int _sabotageSpawnLimitThisWave;
+
     // Puddle management
     private readonly List<GameObject> _activePuddles = new List<GameObject>();
     private readonly Dictionary<GameObject, int> _puddleOrigin = new Dictionary<GameObject, int>();
@@ -117,7 +123,7 @@ public class WavesSystem : MonoBehaviour
                 {
                     SceneManager.LoadScene("End");
                 }
-                    timerText.text = FormatTime(0f);
+                timerText.text = FormatTime(0f);
             }
         }
     }
@@ -134,6 +140,12 @@ public class WavesSystem : MonoBehaviour
         puddleSpawnedWave2 = false;
         puddleRemovedWave2 = false;
         puddleSpawnedWave3 = false;
+
+        // Reset sabotage counters and pick this wave's random limit
+        _sabotageSpawnedThisWave = 0;
+        if (MinSabotagePerWave < 0) MinSabotagePerWave = 0;
+        if (MaxSabotagePerWave < MinSabotagePerWave) MaxSabotagePerWave = MinSabotagePerWave;
+        _sabotageSpawnLimitThisWave = Random.Range(MinSabotagePerWave, MaxSabotagePerWave + 1); // inclusive max
 
         switch (waveNumber)
         {
@@ -160,11 +172,11 @@ public class WavesSystem : MonoBehaviour
                 break;
         }
 
-        // Update the UI immediately to show the remaining time for the new wave.
+
         if (timerText != null)
             timerText.text = FormatTime(waveTimer);
 
-        Debug.Log($"Wave {waveNumber} started. Duration: {waveTimer}s, spawn every {SpawnInterval}s (multiplier: {spawnMultiplier})");
+        Debug.Log($"Wave {waveNumber} started. Duration: {waveTimer}s, spawn every {SpawnInterval}s (multiplier: {spawnMultiplier}), sabotage limit: {_sabotageSpawnLimitThisWave}");
     }
 
     private void SpawnAll(int multiplier = 1)
@@ -176,7 +188,6 @@ public class WavesSystem : MonoBehaviour
 
             for (int i = 0; i < multiplier; i++)
             {
-                // Choose a random position in x/z and apply the prefab's y + SpawnHeight so it spawns above the ground.
                 Vector3 pos = new Vector3(
                     Random.Range(-10f, 10f),
                     ingredient.transform.position.y + SpawnHeight,
@@ -187,23 +198,40 @@ public class WavesSystem : MonoBehaviour
             }
         }
 
-        // Spawn sabotage items
-        foreach (var sabotage in sabotageItems)
+        // Spawn sabotage items with a per-wave cap 
+        if (sabotageItems != null && sabotageItems.Count > 0)
         {
-            if (sabotage == null) continue;
-
-            for (int i = 0; i < multiplier; i++)
+            int remainingThisWave = _sabotageSpawnLimitThisWave - _sabotageSpawnedThisWave;
+            if (remainingThisWave <= 0)
             {
-                // Choose a random x/z and set y to the prefab's y + SpawnHeight.
+                // cap reached for this wave; do not spawn more sabotage items
+                return;
+            }
+
+            // Determine how many sabotage items we'd normally spawn this tick
+            int normalAttemptCount = multiplier * sabotageItems.Count;
+            int toSpawnThisTick = Mathf.Min(remainingThisWave, normalAttemptCount);
+
+            int spawned = 0;
+            // Spawn up to toSpawnThisTick items, choosing random sabotage prefabs for each spawn.
+            while (spawned < toSpawnThisTick)
+            {
+                var sabotage = sabotageItems[Random.Range(0, sabotageItems.Count)];
+                if (sabotage == null)
+                    continue;
+
                 Vector3 pos = new Vector3(
                     Random.Range(-10f, 10f),
                     sabotage.transform.position.y + SpawnHeight,
                     Random.Range(-10f, 10f)
                 );
 
-                // Instantiate the sabotage item at the computed position with no rotation.
                 Instantiate(sabotage, pos, Quaternion.identity);
+                spawned++;
             }
+
+            _sabotageSpawnedThisWave += spawned;
+            Debug.Log($"[WavesSystem] Spawned {spawned} sabotage items this tick (total this wave: {_sabotageSpawnedThisWave}/{_sabotageSpawnLimitThisWave})");
         }
     }
 
