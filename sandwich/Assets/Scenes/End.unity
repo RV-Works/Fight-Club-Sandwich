@@ -1804,7 +1804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPoint: {fileID: 1071065970}
-  ingriedents: 000000000000000000000000000000000000000000000000
+  ingriedents: 0000000000000000
   ingriedentObjects:
   - {fileID: 9125472126046260894, guid: a404af3ecfa559640834618c039726db, type: 3}
   - {fileID: 7079330528379914530, guid: 36e5484994004bd4c9c9606cb4352c78, type: 3}
