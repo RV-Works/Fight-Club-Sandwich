@@ -100,7 +100,7 @@ public class youwon : MonoBehaviour
     }
     void IdiotSandwich()
     {
-        if (GetScoreForID(0) >= 1 &&
+        if (GetScoreForID(0) > 1 &&
             GetScoreForID(0) <= GetScoreForID(1) &&
             GetScoreForID(0) <= GetScoreForID(2) &&
             GetScoreForID(0) <= GetScoreForID(3))
@@ -108,7 +108,7 @@ public class youwon : MonoBehaviour
             Debug.Log("Player 1 is an idiot sandwich!");
             idiotSandwichObj1.SetActive(true);
         }
-        else if ( GetScoreForID(1) >= 1 &&
+        else if ( GetScoreForID(1) > 1 &&
                  GetScoreForID(1) <= 1 && GetScoreForID(1) <= GetScoreForID(0) &&
                  GetScoreForID(1) <= GetScoreForID(2) &&
                  GetScoreForID(1) <= GetScoreForID(3))
@@ -116,14 +116,14 @@ public class youwon : MonoBehaviour
             Debug.Log("Player 2 is an idiot sandwich!");
             idiotSandwichObj2.SetActive(true);
         }
-        else if (GetScoreForID(2) >= 1 && GetScoreForID(2) <= GetScoreForID(0) &&
+        else if (GetScoreForID(2) > 1 && GetScoreForID(2) <= GetScoreForID(0) &&
                  GetScoreForID(2) <= GetScoreForID(1) &&
                  GetScoreForID(2) <= GetScoreForID(3))
         {
             Debug.Log("Player 3 is an idiot sandwich!");
             idiotSandwichObj3.SetActive(true);
         }
-        else if (GetScoreForID(3) >= 1 && GetScoreForID(3) <= GetScoreForID(0) &&
+        else if (GetScoreForID(3) > 1 && GetScoreForID(3) <= GetScoreForID(0) &&
                  GetScoreForID(3) <= GetScoreForID(1) &&
                  GetScoreForID(3) <= GetScoreForID(2))
         {
