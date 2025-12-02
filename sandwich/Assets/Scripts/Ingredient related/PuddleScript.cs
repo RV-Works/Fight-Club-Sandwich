@@ -4,16 +4,10 @@ using UnityEngine.InputSystem;
 
 public class PuddleScript : MonoBehaviour
 {
-    // Optional reference to the player's movement component (can be assigned in Inspector).
     public ThirdPersonMovement PlayerMovement;
-
-    [Tooltip("Angular drag to apply while inside the puddle (lower = less angular damping).")]
     public float slipperyAngularDrag = 0.0f;
-
-    [Tooltip("Linear drag to apply while inside the puddle (optional).")]
     public float slipperyDrag = 0.5f;
-
-    // Store original values so they can be restored on exit.
+// COOL LINE HERE CUZ IM LAZY ASF - RV
     private readonly Dictionary<Rigidbody, float> originalAngularDrags = new Dictionary<Rigidbody, float>();
     private readonly Dictionary<Rigidbody, float> originalDrags = new Dictionary<Rigidbody, float>();
 
