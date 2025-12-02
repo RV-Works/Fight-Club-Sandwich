@@ -1283,7 +1283,7 @@ MonoBehaviour:
   idiotSandwichObj2: {fileID: 1531564269}
   idiotSandwichObj3: {fileID: 347212129}
   idiotSandwichObj4: {fileID: 825785254}
-  timer: 15
+  timer: 1000
 --- !u!1 &875708079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411f2638dc400749862523412fbca49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  targetY: 14
+  targetY: 13.8
   speed: 1
 --- !u!114 &892117430
 MonoBehaviour:
@@ -1804,7 +1804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPoint: {fileID: 1071065970}
-  ingriedents: 0000000000000000000000000000000000000000
+  ingriedents: 000000000000000000000000000000000000000000000000
   ingriedentObjects:
   - {fileID: 9125472126046260894, guid: a404af3ecfa559640834618c039726db, type: 3}
   - {fileID: 7079330528379914530, guid: 36e5484994004bd4c9c9606cb4352c78, type: 3}
@@ -2008,7 +2008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPoint: {fileID: 1207843312}
-  ingriedents: 0000000000000000000000000000000000000000
+  ingriedents: 00000000000000000000000000000000000000000000000000000000
   ingriedentObjects:
   - {fileID: 9125472126046260894, guid: a404af3ecfa559640834618c039726db, type: 3}
   - {fileID: 7079330528379914530, guid: 36e5484994004bd4c9c9606cb4352c78, type: 3}

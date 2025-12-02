@@ -114,31 +114,18 @@ public class youwon : MonoBehaviour
             Debug.Log("Player 2 is an idiot sandwich!");
             idiotSandwichObj2.SetActive(true);
         }
-        else if (GetScoreForID(2) <= 1 && GetScoreForID(2) <= GetScoreForID(0) &&
+        else if (GetScoreForID(2) >= 1 && GetScoreForID(2) <= GetScoreForID(0) &&
                  GetScoreForID(2) <= GetScoreForID(1) &&
                  GetScoreForID(2) <= GetScoreForID(3))
         {
             Debug.Log("Player 3 is an idiot sandwich!");
             idiotSandwichObj3.SetActive(true);
         }
-        else if (GetScoreForID(3) <= 1 && GetScoreForID(3) <= GetScoreForID(0) &&
+        else if (GetScoreForID(3) >= 1 && GetScoreForID(3) <= GetScoreForID(0) &&
                  GetScoreForID(3) <= GetScoreForID(1) &&
                  GetScoreForID(3) <= GetScoreForID(2))
         {
             Debug.Log("Player 4 is an idiot sandwich!");
-            idiotSandwichObj4.SetActive(true);
-        }
-        else if( GetScoreForID(0) == GetScoreForID(1) &&
-                 GetScoreForID(0) == GetScoreForID(2) &&
-                 GetScoreForID(0) == GetScoreForID(3) &&
-                 GetScoreForID(1) == GetScoreForID(2) &&
-                 GetScoreForID(1) == GetScoreForID(3) &&
-                 GetScoreForID(2) == GetScoreForID(3))
-        {
-            Debug.Log("Everyone is an idiot sandwich!");
-            idiotSandwichObj1.SetActive(true);
-            idiotSandwichObj2.SetActive(true);
-            idiotSandwichObj3.SetActive(true);
             idiotSandwichObj4.SetActive(true);
         }
     }
