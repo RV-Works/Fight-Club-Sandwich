@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ingredient : MonoBehaviour, ICollectable
@@ -5,6 +6,7 @@ public class Ingredient : MonoBehaviour, ICollectable
     [SerializeField] private float m_throwVelocity = 3f;
     [SerializeField] private bool isGrounded = false;
     [SerializeField] private Ingredients _ingredientType;
+    [SerializeField] private Material _outlineMaterial;
     private Rigidbody rb;
     private BoxCollider boxCollider;
     private const float GroundY = 0.02f;
@@ -12,14 +14,21 @@ public class Ingredient : MonoBehaviour, ICollectable
     private const RigidbodyConstraints inAirConstraints = RigidbodyConstraints.FreezeRotation;
     private LayerMask playerLayer;
     private LayerMask nothingLayer;
+    private MeshRenderer _meshRenderer;
 
 
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         playerLayer = LayerMask.GetMask("Player");
         nothingLayer = LayerMask.GetMask("Nothing");
+    }
+
+    private void Start()
+    {
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+        _outlineMaterial = new Material(_meshRenderer.materials[1]);
     }
 
     void Update()
@@ -47,6 +56,9 @@ public class Ingredient : MonoBehaviour, ICollectable
 
         // player cannot interact
         boxCollider.excludeLayers += playerLayer;
+
+        // add outline to ingredient
+        AddOutline();
 
         // set random velocity
         rb.linearVelocity = new Vector3(Random.Range(-1f, 1f) * m_throwVelocity, 1, Random.Range(-1f, 1f) * m_throwVelocity);
@@ -76,6 +88,7 @@ public class Ingredient : MonoBehaviour, ICollectable
     {
         boxCollider.enabled = false;
         player.GetComponent<PlayerIngredients>().AddIngredient(gameObject);
+        RemoveOutline();
     }
 
     internal virtual void OnCollisionEnter(Collision collision)
@@ -85,6 +98,16 @@ public class Ingredient : MonoBehaviour, ICollectable
             Grounded();
             transform.position = new Vector3(transform.position.x, GroundY, transform.position.z);
         }
+    }
+
+    public void AddOutline()
+    {
+        _meshRenderer.materials = new Material[2] {_meshRenderer.material, _outlineMaterial};
+    }
+
+    public void RemoveOutline()
+    {
+        _meshRenderer.materials = new Material[]{ _meshRenderer.material };
     }
 
     public Ingredients GetIngredientType()

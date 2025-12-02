@@ -6,9 +6,11 @@ public class PlayerSound : MonoBehaviour
 {
     [SerializeField] private ThirdPersonMovement _playerMovement;
     [SerializeField] private PlayerIngredients _playerIngredients;
+    [SerializeField] private PlayerPickup _playerPickup;
     [SerializeField] private AudioClip _dashSound;
     [SerializeField] private List<AudioClip> _walkSound;
     [SerializeField] private AudioClip _pickupIngredientSound;
+    [SerializeField] private AudioClip _throwPickupSound;
     private Coroutine _walkingCoroutine;
     private bool _isWalking;
 
@@ -17,6 +19,7 @@ public class PlayerSound : MonoBehaviour
         _playerMovement.OnDash += DashSound;
         _playerMovement.OnMoveChange += WalkSound;
         _playerIngredients.PickupIngredientEvent += PickupSound;
+        _playerPickup.OnUsePickup += ThrowPickupSound;
     }
 
     void OnDisable()
@@ -24,6 +27,7 @@ public class PlayerSound : MonoBehaviour
         _playerMovement.OnDash -= DashSound;
         _playerMovement.OnMoveChange -= WalkSound;
         _playerIngredients.PickupIngredientEvent -= PickupSound;
+        _playerPickup.OnUsePickup -= ThrowPickupSound;
     }
 
     private void WalkSound(bool isWalking)
@@ -56,5 +60,10 @@ public class PlayerSound : MonoBehaviour
     private void PickupSound()
     {
         SoundManager.Instance.PlaySound(_pickupIngredientSound);
+    }
+
+    private void ThrowPickupSound()
+    {
+        SoundManager.Instance.PlaySound(_throwPickupSound);
     }
 }

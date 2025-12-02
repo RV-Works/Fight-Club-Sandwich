@@ -50,6 +50,7 @@ MonoBehaviour:
   m_throwVelocity: 3
   isGrounded: 0
   _ingredientType: 9
+  _outlineMaterial: {fileID: 0}
 --- !u!65 &6059585788466754800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,8 +70,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.2186299, z: 1.4}
-  m_Center: {x: -0.03, y: 0.11004804, z: -0.03}
+  m_Size: {x: 0.6, y: 0.2186299, z: 1.4}
+  m_Center: {x: 0.03, y: 0.11004804, z: -0.03}
 --- !u!54 &2994928999294332517
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,11 +141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7404233334989973642, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7404233334989973642, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7404233334989973642, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -156,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7404233334989973642, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7404233334989973642, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -166,6 +167,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tentacle_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8541694762895348709, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541694762895348709, guid: bed3f51b7528c504eaad3afdeb2cd23d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d8eac52a4c2ce8442bce0b267a199920, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

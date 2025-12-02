@@ -12,6 +12,7 @@ public class PlayerPickup : MonoBehaviour
     private bool _usedItem;
     private PickupUi _itemUi;
     public event PlayerPickupCallback OnUsePickup;
+    public event PlayerPickupCallback OnThrowPickup;
 
     private void OnEnable()
     {
@@ -54,7 +55,7 @@ public class PlayerPickup : MonoBehaviour
         // add to stack
         item.transform.SetParent(_ingredientParent.transform, true);
         item.transform.localPosition = Vector3.zero;
-        Quaternion rotation = Quaternion.FromToRotation(new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z), new Vector3(0, 0, 0));
+        Quaternion rotation = Quaternion.FromToRotation(new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z), Vector3.zero);
         item.transform.localRotation = rotation;
         _currentItem = item;
 

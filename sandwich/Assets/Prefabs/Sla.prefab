@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   m_throwVelocity: 5
   isGrounded: 0
+  _ingredientType: 0
+  _outlineMaterial: {fileID: 0}
 --- !u!65 &7924655045151054115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,6 +107,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8877801915336144215}
     m_Modifications:
+    - target: {fileID: 4677477180394973351, guid: 8288fff1e92982b42821b0fec6ca2cb4, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677477180394973351, guid: 8288fff1e92982b42821b0fec6ca2cb4, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: af35c07d72b852449a7650038cd4968d, type: 2}
     - target: {fileID: 5810365255182701512, guid: 8288fff1e92982b42821b0fec6ca2cb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

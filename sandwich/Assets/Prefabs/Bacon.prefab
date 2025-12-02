@@ -50,6 +50,7 @@ MonoBehaviour:
   m_throwVelocity: 5
   isGrounded: 0
   _ingredientType: 4
+  _outlineMaterial: {fileID: 0}
 --- !u!65 &7924655045151054115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,6 +107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8877801915336144215}
     m_Modifications:
+    - target: {fileID: 179135811783101199, guid: f25c40c42e388774a8d345cbd1084ad1, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96e36c53f1d85c248bff57b3cc68d46c, type: 2}
     - target: {fileID: 1312596770651238496, guid: f25c40c42e388774a8d345cbd1084ad1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
