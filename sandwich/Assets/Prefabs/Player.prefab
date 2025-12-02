@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 1092844562900075747}
   - component: {fileID: 7747448198992798604}
   - component: {fileID: -6473482442660094930}
+  - component: {fileID: -3233388519551724312}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -309,6 +310,24 @@ MonoBehaviour:
   _inputManager: {fileID: 8822600663031087882}
   _animationController: {fileID: 1092844562900075747}
   _ingredientParent: {fileID: 7274981655364304019}
+--- !u!114 &-3233388519551724312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936150307329352992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4915257df2b8f9a4cb4c8e70862c2225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSound
+  _playerMovement: {fileID: 698120938335919932}
+  _dashSound: {fileID: 8300000, guid: ad446da03314dd949a7660969898a41d, type: 3}
+  _walkSound:
+  - {fileID: 8300000, guid: 91bedfec232441548be3c72e7085f14c, type: 3}
+  - {fileID: 8300000, guid: 7bdbf57869ce2834bb4d25105bc78bcb, type: 3}
+  - {fileID: 8300000, guid: 06d51a1af1f315141b655b6cad243149, type: 3}
 --- !u!1 &1161225076050961215
 GameObject:
   m_ObjectHideFlags: 0

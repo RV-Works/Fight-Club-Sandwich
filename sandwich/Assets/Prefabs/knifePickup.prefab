@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2b841967f9a034889cb85fde664414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BadIngredientPickup
+  _sprite: {fileID: 21300000, guid: 2dfd55e4e43944447a7bb9583f42dca0, type: 3}
   _throwPrefab: {fileID: 7649246830754820589, guid: c6729a62655503149a33a47d12630801, type: 3}
   _throwSpeed: 1000
 --- !u!65 &1328584344626909879
@@ -68,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.37, y: 0.09, z: 3}
-  m_Center: {x: -0.07, y: 0, z: 0.1}
+  m_Size: {x: 0.37, y: 1.0899999, z: 3}
+  m_Center: {x: -0.06999999, y: 0.5, z: 0.100000024}
 --- !u!54 &1254426648508330583
 Rigidbody:
   m_ObjectHideFlags: 0

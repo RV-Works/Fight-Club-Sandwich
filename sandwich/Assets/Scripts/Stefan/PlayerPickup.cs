@@ -34,6 +34,7 @@ public class PlayerPickup : MonoBehaviour
             return;
         
         OnUsePickup?.Invoke();
+        _itemUi.HideItem();
         _usedItem = true;
     }
 

@@ -14,11 +14,12 @@ public class PickupUi : MonoBehaviour
     public void ShowItem(Sprite image)
     {
         _image.sprite = image;
-        gameObject.SetActive(true);
+        _image.SetNativeSize();
+        _image.enabled = true;
     }
 
     public void HideItem()
     {
-        gameObject.SetActive(false);
+        _image.enabled = false;
     }
 }
