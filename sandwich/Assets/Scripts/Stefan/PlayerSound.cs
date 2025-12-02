@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerSound : MonoBehaviour
 {
     [SerializeField] private ThirdPersonMovement _playerMovement;
+    [SerializeField] private PlayerIngredients _playerIngredients;
     [SerializeField] private AudioClip _dashSound;
     [SerializeField] private List<AudioClip> _walkSound;
+    [SerializeField] private AudioClip _pickupIngredientSound;
     private Coroutine _walkingCoroutine;
     private bool _isWalking;
 
@@ -14,12 +16,14 @@ public class PlayerSound : MonoBehaviour
     {
         _playerMovement.OnDash += DashSound;
         _playerMovement.OnMoveChange += WalkSound;
+        _playerIngredients.PickupIngredientEvent += PickupSound;
     }
 
     void OnDisable()
     {
         _playerMovement.OnDash -= DashSound;
         _playerMovement.OnMoveChange -= WalkSound;
+        _playerIngredients.PickupIngredientEvent -= PickupSound;
     }
 
     private void WalkSound(bool isWalking)
@@ -47,5 +51,10 @@ public class PlayerSound : MonoBehaviour
     private void DashSound(bool play)
     {
         SoundManager.Instance.PlaySound(_dashSound);
+    }
+
+    private void PickupSound()
+    {
+        SoundManager.Instance.PlaySound(_pickupIngredientSound);
     }
 }

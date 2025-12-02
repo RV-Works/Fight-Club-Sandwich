@@ -323,11 +323,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSound
   _playerMovement: {fileID: 698120938335919932}
+  _playerIngredients: {fileID: 1975420262728636845}
   _dashSound: {fileID: 8300000, guid: ad446da03314dd949a7660969898a41d, type: 3}
   _walkSound:
   - {fileID: 8300000, guid: 91bedfec232441548be3c72e7085f14c, type: 3}
   - {fileID: 8300000, guid: 7bdbf57869ce2834bb4d25105bc78bcb, type: 3}
   - {fileID: 8300000, guid: 06d51a1af1f315141b655b6cad243149, type: 3}
+  _pickupIngredientSound: {fileID: 8300000, guid: abc075edd164d2e4c8de43c5b6b7274b, type: 3}
 --- !u!1 &1161225076050961215
 GameObject:
   m_ObjectHideFlags: 0

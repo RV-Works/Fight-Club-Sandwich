@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerIngredients : MonoBehaviour
 {
     public static int s_id;
+    public delegate void PlayerIngredientDelegate();
 
     [SerializeField] private GameObject _topBack;
     [SerializeField] private GameObject _topFront;
@@ -18,6 +19,8 @@ public class PlayerIngredients : MonoBehaviour
     private const float _teunScale = 7.815301f; // the bones have a scale for some fking reason
     private Rigidbody _rb;
     [SerializeField] private int _id;
+
+    public event PlayerIngredientDelegate PickupIngredientEvent;
 
     private void Start()
     {
@@ -66,6 +69,9 @@ public class PlayerIngredients : MonoBehaviour
 
         Ingredients type = ingredient.GetComponent<Ingredient>().GetIngredientType();
         GameManager.instance.AddIngredient(_id, type);
+
+        // call event
+        PickupIngredientEvent?.Invoke();
 
         UpdatePosition();
     }
@@ -120,12 +126,14 @@ public class PlayerIngredients : MonoBehaviour
             {
                 Vector3 direction = transform.position - collision.transform.position;
 
-                //float angle = Vector3.Angle(collision.transform.forward, direction);
+                float angle = Vector3.Angle(collision.transform.forward, direction);
+
+                Debug.Log(angle);
 
                 // lose ingredients
                 LoseIngredient(2);
 
-                Debug.Log(name + " loses ingredients");
+                Debug.Log(name + " loses ingredients with " + angle);
             }
 
             return;
