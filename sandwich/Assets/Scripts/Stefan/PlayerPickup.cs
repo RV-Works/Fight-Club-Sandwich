@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerPickup : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private GameObject _ingredientParent;
     private SabotageItem _currentItem = null;
     private bool _usedItem;
-
+    private PickupUi _itemUi;
     public event PlayerPickupCallback OnUsePickup;
 
     private void OnEnable()
@@ -20,6 +21,11 @@ public class PlayerPickup : MonoBehaviour
     private void OnDisable()
     {
         _inputManager.useItemEvent -= Use;
+    }
+
+    private void Start()
+    {
+        _itemUi = UiManager.Instance.GetPlayerUi();
     }
 
     private void Use()
@@ -50,6 +56,8 @@ public class PlayerPickup : MonoBehaviour
         Quaternion rotation = Quaternion.FromToRotation(new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z), new Vector3(0, 0, 0));
         item.transform.localRotation = rotation;
         _currentItem = item;
+
+        _itemUi.ShowItem(item.Sprite);
 
         return true;
     }

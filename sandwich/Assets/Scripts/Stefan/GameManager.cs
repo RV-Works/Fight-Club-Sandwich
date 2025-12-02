@@ -8,7 +8,11 @@ public enum Ingredients
     ham,
     chicken,
     bacon,
-    cheese
+    cheese,
+    badApple,
+    fish,
+    roach,
+    tentacle
 }
 
 public class GameManager : MonoBehaviour

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BadIngredient
   m_throwVelocity: 3
   isGrounded: 0
-  _ingredientType: 0
+  _ingredientType: 8
 --- !u!65 &6059585788466754800
 BoxCollider:
   m_ObjectHideFlags: 0

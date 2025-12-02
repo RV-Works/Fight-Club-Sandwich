@@ -2,6 +2,15 @@ using UnityEngine;
 
 public abstract class SabotageItem : MonoBehaviour, ICollectable
 {
+    [SerializeField] private Sprite _sprite;
+    public Sprite Sprite 
+    {  
+        get 
+        { 
+            return _sprite; 
+        } 
+    }
+    
     private Rigidbody rb;
     private BoxCollider boxCollider;
     private LayerMask playerLayer;

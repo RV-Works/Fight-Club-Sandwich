@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &55730346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -340,6 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 405419051}
+  - component: {fileID: 405419052}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -370,6 +371,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &405419052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405419050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5dc7c9b4b5ba24880af71ec48b5712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiManager
+  _playersUi:
+  - {fileID: 55730345}
+  - {fileID: 1642671643}
+  - {fileID: 1734353663}
+  - {fileID: 1969080286}
+  _playersItem:
+  - {fileID: 1997968844}
+  - {fileID: 1412365577}
+  - {fileID: 816853847}
+  - {fileID: 1358695773}
 --- !u!1001 &450493426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -562,13 +585,14 @@ GameObject:
   - component: {fileID: 816853844}
   - component: {fileID: 816853846}
   - component: {fileID: 816853845}
+  - component: {fileID: 816853847}
   m_Layer: 5
   m_Name: HeldObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &816853844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -626,6 +650,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816853843}
   m_CullTransparentMesh: 1
+--- !u!114 &816853847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816853843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2050fcf08ca91044c9d5e4a8734bf458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupUi
 --- !u!1 &1027783697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1307,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.7725
       objectReference: {fileID: 0}
+    - target: {fileID: 2029232811035179099, guid: 37f4e1e3a088c7d4bb3d0a7fd8fa332a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2303855465738050467, guid: 37f4e1e3a088c7d4bb3d0a7fd8fa332a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1334,6 +1374,14 @@ PrefabInstance:
     - target: {fileID: 2424705606257960282, guid: 37f4e1e3a088c7d4bb3d0a7fd8fa332a, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161577572074457763, guid: 37f4e1e3a088c7d4bb3d0a7fd8fa332a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318096233420456068, guid: 37f4e1e3a088c7d4bb3d0a7fd8fa332a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1433,13 +1481,14 @@ GameObject:
   - component: {fileID: 1358695770}
   - component: {fileID: 1358695772}
   - component: {fileID: 1358695771}
+  - component: {fileID: 1358695773}
   m_Layer: 5
   m_Name: HeldObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1358695770
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1497,6 +1546,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358695769}
   m_CullTransparentMesh: 1
+--- !u!114 &1358695773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358695769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2050fcf08ca91044c9d5e4a8734bf458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupUi
 --- !u!1001 &1392840980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1740,13 +1801,14 @@ GameObject:
   - component: {fileID: 1412365574}
   - component: {fileID: 1412365576}
   - component: {fileID: 1412365575}
+  - component: {fileID: 1412365577}
   m_Layer: 5
   m_Name: HeldObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1412365574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1804,6 +1866,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412365573}
   m_CullTransparentMesh: 1
+--- !u!114 &1412365577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412365573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2050fcf08ca91044c9d5e4a8734bf458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupUi
 --- !u!1 &1444770468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,7 +2089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1642671644
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2144,7 +2218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1734353664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2379,7 +2453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1969080287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2454,13 +2528,14 @@ GameObject:
   - component: {fileID: 1997968841}
   - component: {fileID: 1997968843}
   - component: {fileID: 1997968842}
+  - component: {fileID: 1997968844}
   m_Layer: 5
   m_Name: HeldObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1997968841
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2518,6 +2593,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997968840}
   m_CullTransparentMesh: 1
+--- !u!114 &1997968844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997968840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2050fcf08ca91044c9d5e4a8734bf458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupUi
 --- !u!1 &2032216378
 GameObject:
   m_ObjectHideFlags: 0
