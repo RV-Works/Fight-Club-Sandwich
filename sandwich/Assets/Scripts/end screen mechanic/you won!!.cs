@@ -7,11 +7,13 @@ public class youwon : MonoBehaviour
     [SerializeField] private GameObject P2Won;
     [SerializeField] private GameObject P3Won;
     [SerializeField] private GameObject P4Won;
-    [SerializeField] private GameObject idiotSandwichObj1;
-    [SerializeField] private GameObject idiotSandwichObj2;
-    [SerializeField] private GameObject idiotSandwichObj3;
-    [SerializeField] private GameObject idiotSandwichObj4;
+    //[SerializeField] private GameObject idiotSandwichObj1;
+    //[SerializeField] private GameObject idiotSandwichObj2;
+    //[SerializeField] private GameObject idiotSandwichObj3;
+    //[SerializeField] private GameObject idiotSandwichObj4;
     [SerializeField] private int timer = 15;
+    private int IdiotSandwichID;
+    [SerializeField] private GameObject[] IdiotSandwichObjs;
 
     private void Update()
     {
@@ -94,41 +96,25 @@ public class youwon : MonoBehaviour
             P4Won.SetActive(true);
         }
     }
+
     void IdiotSandwich()
     {
-        if (
-            GetScoreForID(0) > 1 &&
-            GetScoreForID(0) <= GetScoreForID(1) &&
-            GetScoreForID(0) <= GetScoreForID(2) &&
-            GetScoreForID(0) <= GetScoreForID(3))
+        int minScore = 1000;
+        int[]LocalScores = GetScoresPerID();
+        for (int i = 0; i < LocalScores.Length; i++)
         {
-            Debug.Log("Player 1 is an idiot sandwich!");
-            idiotSandwichObj1.SetActive(true);
+            if (LocalScores[i] > 0) 
+            {
+                if (LocalScores[i] < minScore) 
+                { 
+                    minScore = LocalScores[i]; 
+                    IdiotSandwichID = i;
+
+                }
+            }
+          
         }
-        else if (GetScoreForID(1) > 1 &&
-                 GetScoreForID(1) <= GetScoreForID(0) &&
-                 GetScoreForID(1) <= GetScoreForID(2) &&
-                 GetScoreForID(1) <= GetScoreForID(3))
-        {
-            Debug.Log("Player 2 is an idiot sandwich!");
-            idiotSandwichObj2.SetActive(true);
-        }
-        else if (GetScoreForID(2) > 1 &&
-                 GetScoreForID(2) <= GetScoreForID(0) &&
-                 GetScoreForID(2) <= GetScoreForID(1) &&
-                 GetScoreForID(2) <= GetScoreForID(3))
-        {
-            Debug.Log("Player 3 is an idiot sandwich!");
-            idiotSandwichObj3.SetActive(true);
-        }
-        else if (GetScoreForID(3) > 1 &&
-                 GetScoreForID(3) <= GetScoreForID(0) &&
-                 GetScoreForID(3) <= GetScoreForID(1) &&
-                 GetScoreForID(3) <= GetScoreForID(2))
-        {
-            Debug.Log("Player 4 is an idiot sandwich!");
-            idiotSandwichObj4.SetActive(true);
-        }
+        IdiotSandwichObjs[IdiotSandwichID].SetActive(true);
     }
     private void OnTriggerExit(Collider other)
     {

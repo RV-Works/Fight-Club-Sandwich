@@ -177,7 +177,6 @@ MonoBehaviour:
   - {fileID: 3302188840864818619, guid: 5331e77fe9a6b854298158798a265cb6, type: 3}
   - {fileID: 2543958763498685844, guid: cde64e453d7c9754f8034d19f002df6b, type: 3}
   SandwichID: 2
-  Score: 0
   dropDelay: 0.05
 --- !u!1001 &5981136
 PrefabInstance:
@@ -384,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::scorecounter
   scoreID: 1
-  Score: 0
+  Score: 18
   P1ScoreText: {fileID: 1796247191}
 --- !u!65 &55028613
 BoxCollider:
@@ -1279,11 +1278,12 @@ MonoBehaviour:
   P2Won: {fileID: 2125154925}
   P3Won: {fileID: 875708079}
   P4Won: {fileID: 1942650189}
-  idiotSandwichObj1: {fileID: 10138378}
-  idiotSandwichObj2: {fileID: 1531564269}
-  idiotSandwichObj3: {fileID: 347212129}
-  idiotSandwichObj4: {fileID: 825785254}
   timer: 1000
+  IdiotSandwichObjs:
+  - {fileID: 10138378}
+  - {fileID: 1531564269}
+  - {fileID: 347212129}
+  - {fileID: 825785254}
 --- !u!1 &875708079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1817,6 @@ MonoBehaviour:
   - {fileID: 3302188840864818619, guid: 5331e77fe9a6b854298158798a265cb6, type: 3}
   - {fileID: 2543958763498685844, guid: cde64e453d7c9754f8034d19f002df6b, type: 3}
   SandwichID: 0
-  Score: 0
   dropDelay: 0.05
 --- !u!4 &1137930664 stripped
 Transform:
@@ -1870,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::scorecounter
   scoreID: 2
-  Score: 0
+  Score: 23
   P1ScoreText: {fileID: 343946714}
 --- !u!65 &1149790180
 BoxCollider:
@@ -2021,7 +2020,6 @@ MonoBehaviour:
   - {fileID: 3302188840864818619, guid: 5331e77fe9a6b854298158798a265cb6, type: 3}
   - {fileID: 2543958763498685844, guid: cde64e453d7c9754f8034d19f002df6b, type: 3}
   SandwichID: 1
-  Score: 0
   dropDelay: 0.05
 --- !u!1 &1263353725
 GameObject:
@@ -2444,7 +2442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPoint: {fileID: 1712611160}
-  ingriedents: 00000000000000000000000000000000
+  ingriedents: 
   ingriedentObjects:
   - {fileID: 9125472126046260894, guid: a404af3ecfa559640834618c039726db, type: 3}
   - {fileID: 7079330528379914530, guid: 36e5484994004bd4c9c9606cb4352c78, type: 3}
@@ -2457,7 +2455,6 @@ MonoBehaviour:
   - {fileID: 3302188840864818619, guid: 5331e77fe9a6b854298158798a265cb6, type: 3}
   - {fileID: 2543958763498685844, guid: cde64e453d7c9754f8034d19f002df6b, type: 3}
   SandwichID: 3
-  Score: 0
   dropDelay: 0.05
 --- !u!1 &1722137432
 GameObject:
@@ -3571,7 +3568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::scorecounter
   scoreID: 0
-  Score: 0
+  Score: 10
   P1ScoreText: {fileID: 681096672}
 --- !u!65 &2043373948
 BoxCollider:
