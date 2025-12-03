@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2b841967f9a034889cb85fde664414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BadIngredientPickup
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: fa1bb8e1bd40b154f8ec44f0529113d3, type: 3}
   _throwPrefab: {fileID: 3373136046174283832, guid: 9b253dcb214800a428ce251c254ab15c, type: 3}
   _throwSpeed: 1000
 --- !u!65 &6059585788466754800

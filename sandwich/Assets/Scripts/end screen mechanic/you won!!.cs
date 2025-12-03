@@ -14,6 +14,8 @@ public class youwon : MonoBehaviour
     [SerializeField] private int timer = 15;
     private int IdiotSandwichID;
     [SerializeField] private GameObject[] IdiotSandwichObjs;
+    [SerializeField] private GameObject menuButton;
+    [SerializeField] private GameObject retryButton;
 
     private void Update()
     {
@@ -23,6 +25,7 @@ public class youwon : MonoBehaviour
         {
             YouWon();
             IdiotSandwich();
+            ShowButtons();
             Debug.Log("yes it gets here, idiot sandwich and you won called");
         }
 
@@ -115,6 +118,12 @@ public class youwon : MonoBehaviour
           
         }
         IdiotSandwichObjs[IdiotSandwichID].SetActive(true);
+    }
+
+    void ShowButtons()
+    {
+        menuButton.SetActive(true);
+        retryButton.SetActive(true);
     }
     private void OnTriggerExit(Collider other)
     {
