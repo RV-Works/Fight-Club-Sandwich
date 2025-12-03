@@ -7,19 +7,18 @@ using UnityEngine.UI;
 
 public class IngriedentDropper : MonoBehaviour
 {
-    [SerializeField] private GameObject spawnPoint; 
+    [SerializeField] private GameObject spawnPoint;
     [SerializeField] List<Ingredients> ingriedents = new List<Ingredients>();
     [SerializeField] List<GameObject> ingriedentObjects = new List<GameObject>();
     [SerializeField] int SandwichID;
-    [SerializeField] float Score;
     [SerializeField] float dropDelay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (GameManager.instance == null) 
+        if (GameManager.instance == null)
         {
-          
+
             StartCoroutine(Dropper());
             return;
 
@@ -31,9 +30,9 @@ public class IngriedentDropper : MonoBehaviour
         }
 
     }
-    IEnumerator Dropper() 
+    IEnumerator Dropper()
     {
-        foreach (Ingredients ingredient in ingriedents) 
+        foreach (Ingredients ingredient in ingriedents)
         {
             Instantiate(ingriedentObjects[(int)ingredient], spawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(dropDelay);
@@ -41,11 +40,4 @@ public class IngriedentDropper : MonoBehaviour
         yield return null;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ingriedent"))
-        {
-            Score += 1;
-        }
-    }
 }
