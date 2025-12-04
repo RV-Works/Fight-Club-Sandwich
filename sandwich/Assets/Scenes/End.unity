@@ -2299,6 +2299,7 @@ GameObject:
   - component: {fileID: 572714412}
   - component: {fileID: 572714411}
   - component: {fileID: 572714410}
+  - component: {fileID: 572714414}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -2382,6 +2383,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 572714414}
+        m_TargetAssemblyTypeName: DestroyGameManager, Assembly-CSharp
+        m_MethodName: DestroyNow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 572714410}
         m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
         m_MethodName: GoToGame
@@ -2432,6 +2445,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572714408}
   m_CullTransparentMesh: 1
+--- !u!114 &572714414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572714408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3872188d27d10c949ab1238b039f8cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyGameManager
 --- !u!1001 &579727696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7007,6 +7032,7 @@ GameObject:
   - component: {fileID: 1612172351}
   - component: {fileID: 1612172350}
   - component: {fileID: 1612172353}
+  - component: {fileID: 1612172354}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -7077,6 +7103,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1612172354}
+        m_TargetAssemblyTypeName: DestroyGameManager, Assembly-CSharp
+        m_MethodName: DestroyNow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1612172353}
         m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
         m_MethodName: GoToGame
@@ -7140,6 +7178,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
   Level: Menu
+--- !u!114 &1612172354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612172348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3872188d27d10c949ab1238b039f8cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyGameManager
 --- !u!1001 &1619425351
 PrefabInstance:
   m_ObjectHideFlags: 0

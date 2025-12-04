@@ -322,9 +322,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4437630026474179386, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1965201676}
-    - targetCorrespondingSourceObject: {fileID: 4437630026474179386, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1965201680}
   m_SourcePrefab: {fileID: 100100000, guid: 4507a904f164c0b40bd4e101442301e1, type: 3}
 --- !u!1 &380134299 stripped
 GameObject:
@@ -983,6 +980,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190888410}
   m_CullTransparentMesh: 1
+--- !u!1 &1256293129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256293131}
+  - component: {fileID: 1256293130}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1256293130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256293129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14f48975e2a3d44a8a3e0c10446a4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!4 &1256293131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256293129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.04083, y: 4.49253, z: -14.26202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1289953469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2605,18 +2646,6 @@ MonoBehaviour:
   SpawnHeight: 10
   MinSabotagePerWave: 4
   MaxSabotagePerWave: 6
---- !u!114 &1965201680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965201673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14f48975e2a3d44a8a3e0c10446a4ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &1969080286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,3 +3245,4 @@ SceneRoots:
   - {fileID: 1444770470}
   - {fileID: 1327874998}
   - {fileID: 1625442049}
+  - {fileID: 1256293131}
