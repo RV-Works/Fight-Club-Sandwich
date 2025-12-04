@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::scorecounter
   scoreID: 1
-  Score: 18
+  Score: 0
   P1ScoreText: {fileID: 1796247191}
 --- !u!65 &55028613
 BoxCollider:
@@ -5012,7 +5012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::scorecounter
   scoreID: 2
-  Score: 23
+  Score: 0
   P1ScoreText: {fileID: 343946714}
 --- !u!65 &1149790180
 BoxCollider:
@@ -9433,7 +9433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::scorecounter
   scoreID: 0
-  Score: 10
+  Score: 0
   P1ScoreText: {fileID: 681096672}
 --- !u!65 &2043373948
 BoxCollider:
