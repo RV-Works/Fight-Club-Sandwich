@@ -3751,7 +3751,7 @@ MonoBehaviour:
   P2Won: {fileID: 2125154925}
   P3Won: {fileID: 875708079}
   P4Won: {fileID: 1942650189}
-  timer: 1000
+  timer: 1100
   IdiotSandwichObjs:
   - {fileID: 10138378}
   - {fileID: 1531564269}
